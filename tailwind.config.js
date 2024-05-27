@@ -12,8 +12,24 @@ export default {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            colors: {
+                dgreen: '#065F46',
+                lgreen: '#059669',
+                orange: '#FD7E0B',
+                tblack: '#1F2937',
+                caption: '#9CA3AF',
+                lwhite: '#F5F5F5',
+            },
+            fontSize: {
+                'h1': '48px',
+                'h2': '40px',
+                'h3': '33px',
+                'h4': '28px',
+                'h5': '23px',
+                'title1': '19px',
+                'title2': '16px',
+                'body': '13px',
+                'caption': '11px',
             },
         },
     },
