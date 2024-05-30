@@ -28,6 +28,7 @@ export default {
                 'h5': '23px',
                 'title1': '19px',
                 'title2': '16px',
+                'title3': '8px',
                 'body': '13px',
                 'caption': '11px',
             },
