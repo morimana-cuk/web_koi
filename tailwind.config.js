@@ -11,6 +11,10 @@ export default {
     ],
 
     theme: {
+        container: {
+            center: true,
+            padding: '16px',
+        },
         extend: {
             colors: {
                 dgreen: '#065F46',
@@ -32,6 +36,9 @@ export default {
                 'body': '13px',
                 'caption': '11px',
             },
+            screens: {
+                '2xl': '1440px'
+            }
         },
     },
 

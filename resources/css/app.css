@@ -5,3 +5,7 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+
+#menu-btn:checked ~ #menu {
+    display: block;
+}
