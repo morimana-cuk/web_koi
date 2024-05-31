@@ -20,28 +20,28 @@
 </head>
 
 <body>
-        <section id="hero" class="flex flex-col min-h-screen text-white bg-center bg-cover bg-blend-overlay "
-            style="background-image: url('{{ asset('images/landingpage/herobackground.png') }}');">
-            @livewire('components.header')
-            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                <div class="flex-1 flex items-center">
-                    <div class="text-center mx-auto">
-                        <h1 class="text-h3 font-bold text-white xl:text-h1">Selamat Datang di</h1>
-                        <h1 class="text-h3 font-bold text-white xl:text-h1">Gumukmas Multifarm (GMF)</h1>
-                        <p class="text-title2 text-text mb-7">Kemitraan Domba dan Produksi Pakan Ternak Terbaik di
-                            Jember,
-                            Jawa
-                            Timur, Indonesia</p>
-                        <a href="#"
-                            class="py-3 px-9 bg-orange text-title2 text-lwhite rounded-xl hover:bg-orange/80">Mulai
-                            Bermitra</a>
-                    </div>
+    <section id="hero" class="flex flex-col min-h-screen text-white bg-center bg-cover bg-blend-overlay "
+        style="background-image: url('{{ asset('images/landingpage/herobackground.png') }}');">
+        @livewire('components.header')
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="flex-1 flex items-center">
+                <div class="text-center mx-auto">
+                    <h1 class="text-h3 font-bold text-white xl:text-h1">Selamat Datang di</h1>
+                    <h1 class="text-h3 font-bold text-white xl:text-h1">Gumukmas Multifarm (GMF)</h1>
+                    <p class="text-title2 text-text mb-7">Kemitraan Domba dan Produksi Pakan Ternak Terbaik di
+                        Jember,
+                        Jawa
+                        Timur, Indonesia</p>
+                    <a href="#"
+                        class="py-3 px-9 bg-orange text-title2 text-lwhite rounded-xl hover:bg-orange/80">Mulai
+                        Bermitra</a>
                 </div>
-        </section>
-        <section id="about">
+            </div>
+    </section>
+    <section id="about">
 
-        </section>
-        @livewire('components.about')
+    </section>
+    @livewire('components.about')
     @vite('resources/js/app.js')
     <script src="{{ asset('assets/script.js') }}"></script>
 </body>
