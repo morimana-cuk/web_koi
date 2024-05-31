@@ -19,8 +19,8 @@
     <meta name="author" content="Gumukmas Multifarm">
 </head>
 
-<body>
-    <!-- Start Hero section -->
+<body class="bg-lwhite">
+    <!-- Start Hero Section -->
     <section id="hero" class="flex flex-col min-h-screen text-white bg-center bg-cover bg-blend-overlay "
         style="background-image: url('{{ asset('images/landingpage/herobackground.png') }}')">
         <div class="container">
@@ -44,10 +44,26 @@
             </div>
         </div>
     </section>
-    <!-- End Hero section -->
-    <section id="about">
+    <!-- End Hero Section -->
 
+    <!-- Start About section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center sm:px-4 md:px-0">
+                <div class="order-2 md:order-1 w-full md:w-1/3 flex justify-center md:justify-start mb-8 md:mb-0">
+                    <img src="{{ asset('images/landingpage/aboutimage.png') }}" alt="About Image" class="max-w-full h-auto object-cover">
+                </div>
+                <div class="order-1 mb-16 md:order-2 w-full md:w-3/4 md:pl-4">
+                    <h2 class="text-h2 text-dgreen font-bold mb-4">Tentang Kami</h2>
+                    <p class="text-title2 text-tblack leading-relaxed mb-12">
+                        Gumukmas Multifarm (GMF) adalah perusahaan yang berkomitmen untuk meningkatkan kualitas dan produktivitas peternakan di Indonesia. Kami fokus pada kemitraan domba serta penyediaan pakan ternak ruminansia berkualitas tinggi. Berlokasi di Jember, Jawa Timur, kami siap mendukung peternak lokal dengan layanan terbaik dan terpercaya.
+                    </p>
+                    <a href="#" class="py-3 px-9 mb-8 bg-orange text-title2 text-lwhite rounded-xl hover:bg-orange/80">Mulai Bermitra</a>
+                </div>
+            </div>
+        </div>
     </section>
+    <!-- End About section -->
     @livewire('components.about')
     @vite('resources/js/app.js')
     <script src="{{ asset('assets/script.js') }}"></script>
