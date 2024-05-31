@@ -46,24 +46,49 @@
     </section>
     <!-- End Hero Section -->
 
-    <!-- Start About section -->
+    <!-- Start About Section -->
     <section id="about" class="py-16">
         <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center sm:px-4 md:px-0">
-                <div class="order-2 md:order-1 w-full md:w-1/3 flex justify-center md:justify-start mb-8 md:mb-0">
+            <div class="flex flex-col md:flex-row items-center sm:pt-4 md:px-0">
+                <div class="order-2 md:order-1 w-full md:w-2/5 flex justify-center md:justify-start mb-8 md:mb-0">
                     <img src="{{ asset('images/landingpage/aboutimage.png') }}" alt="About Image" class="max-w-full h-auto object-cover">
                 </div>
-                <div class="order-1 mb-16 md:order-2 w-full md:w-3/4 md:pl-4">
+                <div class="order-1 mb-16 md:order-2 w-full md:w-3/5 md:pl-4">
                     <h2 class="text-h2 text-dgreen font-bold mb-4">Tentang Kami</h2>
                     <p class="text-title2 text-tblack leading-relaxed mb-12">
-                        Gumukmas Multifarm (GMF) adalah perusahaan yang berkomitmen untuk meningkatkan kualitas dan produktivitas peternakan di Indonesia. Kami fokus pada kemitraan domba serta penyediaan pakan ternak ruminansia berkualitas tinggi. Berlokasi di Jember, Jawa Timur, kami siap mendukung peternak lokal dengan layanan terbaik dan terpercaya.
+                        Gumukmas Multifarm (GMF) adalah perusahaan yang berkomitmen untuk meningkatkan kualitas dan 
+                        produktivitas peternakan di Indonesia. Kami fokus pada kemitraan domba serta penyediaan pakan ternak 
+                        ruminansia berkualitas tinggi. Berlokasi di Jember, Jawa Timur, kami siap mendukung peternak lokal 
+                        dengan layanan terbaik dan terpercaya.
                     </p>
                     <a href="#" class="py-3 px-9 mb-8 bg-orange text-title2 text-lwhite rounded-xl hover:bg-orange/80">Mulai Bermitra</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End About section -->
+    <!-- End About Section -->
+    {{-- Start Service section --}}
+    <section id="service" class="py-16">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center mb-12 sm:px-4">
+                <div class="w-full md:w-1/2 order-1">
+                    <h2 class="text-h2 text-dgreen font-bold mb-4">Layanan Gumukmas Multifarm (GMF)</h2>
+                    <p class="text-title2 font-bold text-orange leading-relaxed">Apa saja layanan yang kami sediakan ?</p>
+                </div>
+                <div class="w-full md:w-1/2 order-2">
+                    <p class="text-title2 text-tblack leading-relaxed">
+                        Kami menawarkan berbagai layanan yang dirancang untuk mendukung 
+                        kesuksesan peternakan Anda. Mulai dari kemitraan domba hingga 
+                        produksi pakan ternak berkualitas tinggi, kami berkomitmen untuk 
+                        memberikan solusi terbaik bagi peternak. Dengan layanan yang unggul 
+                        kami yang dapat membantu meningkatkan produktivitas dan efisiensi 
+                        usaha peternakan Anda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- End Service section --}}
     @livewire('components.about')
     @vite('resources/js/app.js')
     <script src="{{ asset('assets/script.js') }}"></script>

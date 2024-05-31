@@ -10,7 +10,7 @@
             </svg>
         </label>
         <div id="menu" class="hidden lg:flex lg:flex-row lg:items-center lg:gap-[4vw] flex-col items-center absolute lg:static top-16 left-0 w-full bg-white lg:bg-transparent z-10 lg:w-auto lg:flex-grow">
-            <ul class="flex lg:flex-row flex-col lg:items-center lg:gap-12 gap-8 lg:gap-4 lg:flex-grow lg:justify-center">
+            <ul class="flex lg:flex-row flex-col lg:items-center gap-12 lg:flex-grow lg:justify-center">
                 <li>
                     <a class="text-title2 text-dgreen hover:font-bold" href="#">Beranda</a>
                 </li>
