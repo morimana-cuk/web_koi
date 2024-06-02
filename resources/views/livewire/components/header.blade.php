@@ -12,13 +12,13 @@
         <div id="menu" class="hidden lg:flex lg:flex-row lg:items-center lg:gap-[4vw] flex-col items-center absolute lg:static top-16 left-0 w-full bg-white lg:bg-transparent z-10 lg:w-auto lg:flex-grow">
             <ul class="flex lg:flex-row flex-col lg:items-center gap-12 lg:flex-grow lg:justify-center">
                 <li>
-                    <a class="text-title2 text-dgreen hover:font-bold" href="#">Beranda</a>
+                    <a class="text-title2 text-dgreen hover:font-bold" href="#hero">Beranda</a>
                 </li>
                 <li>
-                    <a class="text-title2 text-dgreen hover:font-bold" href="#">Tentang</a>
+                    <a class="text-title2 text-dgreen hover:font-bold" href="#about">Tentang</a>
                 </li>
                 <li>
-                    <a class="text-title2 text-dgreen hover:font-bold" href="#">Layanan</a>
+                    <a class="text-title2 text-dgreen hover:font-bold" href="#service">Layanan</a>
                 </li>
                 <li>
                     <a class="text-title2 text-dgreen hover:font-bold" href="#">Blog</a>
