@@ -163,8 +163,8 @@
             <div class="flex-1 flex items-center">
                 <div class="text-center mx-auto">
                     <h1 class="text-h2 font-bold text-white xl:text-h1">Apa Kata Mereka</h1>
-                    <h1 class="text-h2 font-bold text-white xl:text-h1">Tentang Gumukmas Multifarm ?</h1>
-                    <p class="text-title2 text-text mb-7 text-white">Dengarkan pengalaman para peternak yang telah
+                    <h1 class="text-h2 font-bold text-white xl:text-h1 mb-4">Tentang Gumukmas Multifarm ?</h1>
+                    <p class="text-title2 text-text mb-2 text-white">Dengarkan pengalaman para peternak yang telah
                         merasakan
                         manfaat dari kemitraan dengan Gumukmas Multifarm (GMF). Kami bangga dengan hubungan yang kami
                         bangun dan hasil yang telah dicapai bersama mitra-mitra kami. Berikut adalah beberapa testimoni
@@ -179,7 +179,8 @@
         <div class="container flex items-center p-12 justify-center mx-auto relative z-20">
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
                 <div class="rounded-xl shadow-lg bg-white">
-                    <div class="mt-7 ml-6"><img src="{{ asset('images/landingpage/quote.png') }}" alt=""></div>
+                    <div class="mt-7 ml-6"><img src="{{ asset('images/landingpage/quote.png') }}" alt="">
+                    </div>
                     <div class="p-6 flex flex-col items-center">
                         <p class="text-body">
                             Saya sangat puas dengan pakan ternak dari GMF. Sebelum mengenal GMF, saya sering mengalami
@@ -191,7 +192,8 @@
                     </div>
                     <div class="border-t border-gray-300"></div>
                     <div class="max-w-sm mx-auto bg-white rounded-xl shadow-lg p-6 flex items-center space-x-4">
-                        <img class="w-13 h-13 rounded-full" src="{{ asset('images/landingpage/profile.png') }}" alt="Profile Picture">
+                        <img class="w-13 h-13 rounded-full" src="{{ asset('images/landingpage/profile.png') }}"
+                            alt="Profile Picture">
                         <div>
                             <div class="text-body font-bold text-black">Santoso Budi</div>
                             <p class="text-body text-grey">Peternak uang</p>
@@ -199,7 +201,8 @@
                     </div>
                 </div>
                 <div class="rounded-xl shadow-lg bg-white">
-                    <div class="mt-7 ml-6"><img src="{{ asset('images/landingpage/quote.png') }}" alt=""></div>
+                    <div class="mt-7 ml-6"><img src="{{ asset('images/landingpage/quote.png') }}" alt="">
+                    </div>
                     <div class="p-6 flex flex-col items-center">
                         <p class="text-body">
                             Saya sangat puas dengan pakan ternak dari GMF. Sebelum mengenal GMF, saya sering mengalami
@@ -211,14 +214,17 @@
                     </div>
                     <div class="border-t border-gray-300"></div>
                     <div class="max-w-sm mx-auto bg-white rounded-xl shadow-lg p-6 flex items-center space-x-4">
-                        <img class="w-13 h-13 rounded-full" src="{{ asset('images/landingpage/profile.png') }}" alt="Profile Picture">
+                        <img class="w-13 h-13 rounded-full" src="{{ asset('images/landingpage/profile.png') }}"
+                            alt="Profile Picture">
                         <div>
                             <div class="text-body font-bold text-black">Santoso Budi</div>
                             <p class="text-body text-grey">Peternak uang</p>
                         </div>
                     </div>
-                </div> <div class="rounded-xl shadow-lg bg-white">
-                    <div class="mt-7 ml-6"><img src="{{ asset('images/landingpage/quote.png') }}" alt=""></div>
+                </div>
+                <div class="rounded-xl shadow-lg bg-white">
+                    <div class="mt-7 ml-6"><img src="{{ asset('images/landingpage/quote.png') }}" alt="">
+                    </div>
                     <div class="p-6 flex flex-col items-center">
                         <p class="text-body">
                             Saya sangat puas dengan pakan ternak dari GMF. Sebelum mengenal GMF, saya sering mengalami
@@ -230,7 +236,8 @@
                     </div>
                     <div class="border-t border-gray-300"></div>
                     <div class="max-w-sm mx-auto bg-white rounded-xl shadow-lg p-6 flex items-center space-x-4">
-                        <img class="w-13 h-13 rounded-full" src="{{ asset('images/landingpage/profile.png') }}" alt="Profile Picture">
+                        <img class="w-13 h-13 rounded-full" src="{{ asset('images/landingpage/profile.png') }}"
+                            alt="Profile Picture">
                         <div>
                             <div class="text-body font-bold text-black">Santoso Budi</div>
                             <p class="text-body text-grey">Peternak uang</p>
