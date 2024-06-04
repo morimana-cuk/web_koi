@@ -30,8 +30,8 @@
             <div class="mx-auto p-4 md:py-8">
                 <div class="flex-1 flex items-center">
                     <div class="text-center mx-auto">
-                        <h1 class="text-h3 font-bold text-white xl:text-h1">Selamat Datang di</h1>
-                        <h1 class="text-h3 font-bold text-white xl:text-h1">Gumukmas Multifarm (GMF)</h1>
+                        <h1 class="text-h3 font-bold text-white md:text-h2 lg:text-h1">Selamat Datang di</h1>
+                        <h1 class="text-h3 font-bold text-white md:text-h2 lg:text-h1">Gumukmas Multifarm (GMF)</h1>
                         <p class="text-title2 text-text mb-7">Kemitraan Domba dan Produksi Pakan Ternak Terbaik di
                             Jember,
                             Jawa
@@ -72,6 +72,7 @@
         </div>
     </section>
     <!-- End About Section -->
+
     {{-- Start Service section --}}
     <section id="service" class="py-16 relative">
         <div class="container mx-auto relative z-10">
@@ -98,11 +99,12 @@
             style="background-image: url('{{ asset('images/footer/footer.png') }}');">
         </div>
 
-        <div class="container flex items-center p-12 justify-center mx-auto relative z-20">
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="container flex items-center mt-12 justify-center mx-auto relative z-20">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {{-- Service 1 --}}
                 <div class="rounded-xl shadow-lg bg-white">
-                    <div class="p-5 flex flex-col items-center">
-                        <div class="rounded-full overflow-hidden mt-8 w-32 h-32 flex items-center justify-center">
+                    <div class="px-6 py-8 flex flex-col items-center">
+                        <div class="rounded-full overflow-hidden mt-8 w-32x h-32 flex items-center justify-center">
                             <img class="w-full h-full object-cover" src="{{ asset('images/landingpage/layanan1.png') }}"
                                 alt="">
                         </div>
@@ -114,6 +116,7 @@
                         </p>
                     </div>
                 </div>
+                {{-- Service 2 --}}
                 <div class="rounded-xl shadow-lg  bg-white">
                     <div class="p-5 flex flex-col items-center">
                         <div class="rounded-full overflow-hidden mt-8 w-32 h-32 flex items-center justify-center">
@@ -127,6 +130,7 @@
                             pengembangbiakan domba Anda. Kualitas ternak kami terjamin, sehat, dan produktif.</p>
                     </div>
                 </div>
+                {{-- Service 3 --}}
                 <div class="rounded-xl shadow-lg  bg-white">
                     <div class="p-5 flex flex-col items-center">
                         <div class="rounded-full overflow-hidden mt-8 w-32 h-32 flex items-center justify-center">
@@ -140,6 +144,7 @@
                             waktu pengiriman untuk memenuhi kebutuhan ternak Anda.</p>
                     </div>
                 </div>
+                {{-- Service 4 --}}
                 <div class="rounded-xl shadow-lg  bg-white">
                     <div class="p-5 flex flex-col items-center ">
                         <div class="rounded-full overflow-hidden mt-8 w-32 h-32 flex items-center justify-center">
@@ -157,7 +162,9 @@
             </div>
         </div>
     </section>
+    {{-- End Service section --}}
 
+    {{-- Start Section Testimonial --}}
     <section id="" class="py-16 relative">
         <div class="container mx-auto relative z-10">
             <div class="flex-1 flex items-center">
@@ -247,8 +254,8 @@
             </div>
         </div>
     </section>
+    {{-- End Section Testimonial --}}
 
-    {{-- End Service section --}}
     @livewire('components.about')
     @vite('resources/js/app.js')
     <script src="{{ asset('assets/script.js') }}"></script>
