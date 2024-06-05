@@ -47,10 +47,10 @@
     <!-- End Hero Section -->
 
     <!-- Start About Section -->
-    <section id="about" class="py-16">
+    <section id="about" class="pt-24 pb-16">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center sm:pt-4 md:px-0">
-                <div class="order-2 md:order-1 w-full md:w-2/5 flex justify-center md:justify-start mb-8 md:mb-0">
+                <div class="order-2 md:order-1 w-full md:w-2/5 flex justify-center md:justify-start md:mb-0">
                     <img src="{{ asset('images/landingpage/aboutimage.png') }}" alt="About Image"
                         class="max-w-full h-auto object-cover">
                 </div>
@@ -74,16 +74,16 @@
     <!-- End About Section -->
 
     {{-- Start Service section --}}
-    <section id="service" class="py-16 relative">
+    <section id="service" class="py-4 md:py-16 relative">
         <div class="container mx-auto relative z-10">
             <div class="flex flex-col md:flex-row items-center sm:px-4">
-                <div class="w-full md:w-1/2 order-1">
+                <div class="w-full md:w-1/2 order-1 mt-4">
                     <h2 class="text-h2 text-dgreen font-bold mb-4">Layanan Gumukmas Multifarm (GMF)</h2>
-                    <p class="text-title2 font-bold text-orange leading-relaxed">Apa saja layanan yang kami sediakan?
+                    <p class="text-title2 font-bold text-orange mb-6 leading-relaxed">Apa saja layanan yang kami sediakan?
                     </p>
                 </div>
                 <div class="w-full md:w-1/2 order-2">
-                    <p class="text-title2 p-5 text-white leading-relaxed">
+                    <p class="text-title2 text-tblack leading-relaxed md:text-lwhite md:pl-8">
                         Kami menawarkan berbagai layanan yang dirancang untuk mendukung
                         kesuksesan peternakan Anda. Mulai dari kemitraan domba hingga
                         produksi pakan ternak berkualitas tinggi, kami berkomitmen untuk
@@ -95,72 +95,75 @@
             </div>
         </div>
 
-        <div class="absolute top-0 right-0 w-1/2 bg-dgreen mt-9 h-80 flex items-center justify-center z-0"
+        <div class="hidden md:flex absolute top-0 right-0 w-1/2 bg-dgreen mt-9 h-80 items-center justify-center z-0"
             style="background-image: url('{{ asset('images/footer/footer.png') }}');">
         </div>
 
-        <div class="container flex items-center mt-12 justify-center mx-auto relative z-20">
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="container flex items-center mt-8 justify-center mx-auto relative z-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {{-- Service 1 --}}
-                <div class="rounded-xl shadow-lg bg-white">
-                    <div class="px-6 py-8 flex flex-col items-center">
-                        <div class="rounded-full overflow-hidden mt-8 w-32x h-32 flex items-center justify-center">
-                            <img class="w-full h-full object-cover" src="{{ asset('images/landingpage/layanan1.png') }}"
-                                alt="">
+                <a href="https://www.youtube.com/watch?v=0xWkmwYg0UI" class="service-card rounded-xl shadow-lg px-6 py-8 bg-white block">
+                    <div class="flex flex-col items-center">
+                        <div class="rounded-full overflow-hidden p-4 shadow-md flex items-center justify-center">
+                            <img class="h-auto" src="{{ asset('images/landingpage/layanan1.png') }}" alt="">
                         </div>
-                        <p class="title2 text-dgreen mt-6 font-bold">Kemitraan Domba
-                            Gumukmas Multifarm</p>
-                        <p class="text-body mt-4">
-                            Bersama GMF, raih peluang kemitraan dengan sistem yang transparan dan menguntungkan.
-                            Kami menyediakan bimbingan dan dukungan penuh untuk memastikan kesuksesan usaha Anda
-                        </p>
+                        <div class="flex flex-col">
+                            <p class="text-title2 text-left text-dgreen mt-6 font-bold">Kemitraan Domba Gumukmas Multifarm (GMF)</p>
+                            <p class="text-body text-tblack mt-4 leading-relaxed">
+                                Bersama GMF, raih peluang kemitraan dengan sistem yang transparan dan menguntungkan.
+                                Kami menyediakan bimbingan dan dukungan penuh untuk memastikan kesuksesan usaha Anda
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
                 {{-- Service 2 --}}
-                <div class="rounded-xl shadow-lg  bg-white">
-                    <div class="p-5 flex flex-col items-center">
-                        <div class="rounded-full overflow-hidden mt-8 w-32 h-32 flex items-center justify-center">
-                            <img class="w-full h-full object-cover" src="{{ asset('images/landingpage/layanan2.png') }}"
-                                alt="">
+                <a href="https://www.youtube.com/watch?v=rjs8j9z7uIE" class="service-card rounded-xl shadow-lg px-6 py-8 bg-white block">
+                    <div class="flex flex-col items-center">
+                        <div class="rounded-full overflow-hidden p-4 shadow-md flex items-center justify-center">
+                            <img class="h-auto" src="{{ asset('images/landingpage/layanan2.png') }}" alt="">
                         </div>
-                        <p class="title2 text-dgreen mt-6 font-bold">Domba Pejantan & Indukan
-                            Kualitas Unggul</p>
-                        <p class="text-body mt-4">
-                            Kami menyediakan domba pejantan dan indukan unggul untuk mendukung program
-                            pengembangbiakan domba Anda. Kualitas ternak kami terjamin, sehat, dan produktif.</p>
+                        <div class="flex flex-col">
+                            <p class="text-title2 text-left text-dgreen mt-6 font-bold">Domba Pejantan & Indukan Kualitas Unggul</p>
+                            <p class="text-body text-tblack mt-4 leading-relaxed">
+                                Kami menyediakan domba pejantan dan indukan unggul untuk mendukung program
+                                pengembangbiakan domba Anda. Kualitas ternak kami terjamin, sehat, dan produktif.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
                 {{-- Service 3 --}}
-                <div class="rounded-xl shadow-lg  bg-white">
-                    <div class="p-5 flex flex-col items-center">
-                        <div class="rounded-full overflow-hidden mt-8 w-32 h-32 flex items-center justify-center">
-                            <img class="w-full h-full object-cover" src="{{ asset('images/landingpage/layanan3.png') }}"
-                                alt="">
+                <a href="https://www.youtube.com/watch?v=Vl-aqpgYKFM" class="service-card rounded-xl shadow-lg px-6 py-8 bg-white block">
+                    <div class="flex flex-col items-center">
+                        <div class="rounded-full overflow-hidden p-4 shadow-md flex items-center justify-center">
+                            <img class="h-auto" src="{{ asset('images/landingpage/layanan3.png') }}" alt="">
                         </div>
-                        <p class="title2 text-dgreen mt-6 font-bold">Pengadaan Bahan Baku
-                            Pakan Ternak</p>
-                        <p class="text-body mt-4">
-                            Dapatkan bahan baku pakan ternak terbaik dari kami. Kami menjamin kualitas dan ketepatan
-                            waktu pengiriman untuk memenuhi kebutuhan ternak Anda.</p>
+                        <div class="flex flex-col">
+                            <p class="text-title2 text-left text-dgreen mt-6 font-bold">Pengadaan Bahan Baku Pakan Ternak</p>
+                            <p class="text-body text-tblack mt-4 leading-relaxed">
+                                Dapatkan bahan baku pakan ternak terbaik dari kami. Kami menjamin kualitas dan ketepatan
+                                waktu pengiriman untuk memenuhi kebutuhan ternak Anda.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
                 {{-- Service 4 --}}
-                <div class="rounded-xl shadow-lg  bg-white">
-                    <div class="p-5 flex flex-col items-center ">
-                        <div class="rounded-full overflow-hidden mt-8 w-32 h-32 flex items-center justify-center">
-                            <img class="w-full h-full object-cover" src="{{ asset('images/landingpage/layanan4.png') }}"
-                                alt="">
+                <a href="https://www.youtube.com/watch?v=4q7knADADUs" class="service-card rounded-xl shadow-lg px-6 py-8 bg-white block">
+                    <div class="flex flex-col items-center">
+                        <div class="rounded-full overflow-hidden p-4 shadow-md flex items-center justify-center">
+                            <img class="h-auto" src="{{ asset('images/landingpage/layanan4.png') }}" alt="">
                         </div>
-                        <p class="title2 text-dgreen mt-6 font-bold">Produksi Pakan Ternak
-                            Ruminansia</p>
-                        <p class="text-body mt-4">
-                            Kami memproduksi pakan ternak ruminansia dengan formulasi yang optimal untuk kesehatan
-                            dan produktivitas ternak Anda. Produk kami terbuat dari bahan-bahan berkualitas tinggi
-                            dan sudah teruji.</p>
+                        <div class="flex flex-col">
+                            <p class="text-title2 text-left text-dgreen mt-6 font-bold">Produksi Pakan Ternak Ruminansia Kualitas Unggul</p>
+                            <p class="text-body text-tblacks mt-4 leading-relaxed">
+                                Kami memproduksi pakan ternak ruminansia dengan formulasi yang optimal untuk kesehatan
+                                dan produktivitas ternak Anda. Produk kami terbuat dari bahan-bahan berkualitas tinggi
+                                dan sudah teruji.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
+        </div>        
     </section>
     {{-- End Service section --}}
 
