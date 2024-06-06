@@ -272,26 +272,146 @@
 
         <!-- Navigation Buttons -->
         <div class="flex justify-center mt-8 space-x-4">
-            <button class="w-12 h-12 rounded-full border-solid border-1 border-orange bg-white text-orange flex items-center justify-center shadow-lg" id="prev-btn">
+            <button
+                class="w-12 h-12 rounded-full border-solid border-1 border-orange bg-white text-orange flex items-center justify-center shadow-lg"
+                id="prev-btn">
                 &#8249;
             </button>
-            <button class="w-12 h-12 rounded-full bg-orange text-white flex items-center justify-center shadow-lg" id="next-btn">
+            <button class="w-12 h-12 rounded-full bg-orange text-white flex items-center justify-center shadow-lg"
+                id="next-btn">
                 &#8250;
             </button>
         </div>
     </section>
     {{-- End Section Testimonial --}}
 
+    <section id="" class="py-16 relative">
+        <div class="container mx-auto relative z-10">
+            <div class="flex items-center justify-center">
+                <div class="text-center">
+                    <h1 class="text-h2 font-bold xl:text-h1 text-dgreen">Blog</h1>
+                    <h1 class="text-h2 font-bold xl:text-h1 text-dgreen">Gumukmas Multifarm</h1>
+                </div>
+            </div>
+        </div>
+        <!-- New Layout Section -->
+        <div class="container mx-auto mt-12">
+            <div class="flex flex-col md:flex-row md:space-x-4">
+                <div class="flex-1 mb-8 md:mb-0">
+                    <a href="#">
+                        <div class="rounded-xl mb-6 shadow-lg bg-transparent flex-shrink-0 w-full hover:bg-white transition ease-in-out duration-300 transform hover:scale-105">
+
+                        <div class="rounded-xl shadow-sm overflow-hidden">
+                            <img src="{{ asset('images/blog/pexels-dmytro-mamon-256046-977239 1.png') }}"
+                                alt="" class="w-full">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-6">
+                                <img src="{{ asset('images/blog/clock.png') }}" class="w-4 h-4">
+                                <p class="text-body flex px-2">16 Mei 2024</p>
+                            </div>
+                            <p class="text-title2 font-bold mb-6">CARA CEPAT PEMBIBITAN DOMBA DENGAN MODEL LOOSE
+                                HOUSING</p>
+                            <p class="text-body mb-8">GMF telah menjadi mitra yang luar biasa bagi usaha peternakan
+                                saya. Dukungan dan kualitas ternak yang mereka berikan sungguh luar biasa.</p>
+                            <div class="flex items-center">
+                                <a href="" class="text-title2 font-bold underline">Baca Selengkapnya</a>
+                                <img src="{{ asset('images/blog/arrow.png') }}" class="w-5 h-4 ml-2" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    </a>
+                </div>
+                <div class="flex-1 mb-8 md:mb-0">
+                    <a href="#">
+                        <div class="rounded-xl mb-6 shadow-lg bg-transparent flex-shrink-0 w-full hover:bg-white transition ease-in-out duration-300 transform hover:scale-105">
+                        <div class="rounded-xl shadow-sm overflow-hidden">
+                            <img src="{{ asset('images/blog/pexels-jenny-k-181141-587411 1.png') }}" alt=""
+                                class="w-full">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-6">
+                                <img src="{{ asset('images/blog/clock.png') }}" class="w-4 h-4">
+                                <p class="text-body flex px-2">16 Mei 2024</p>
+                            </div>
+                            <p class="text-title2 font-bold mb-6">CARA CEPAT PEMBIBITAN DOMBA DENGAN MODEL LOOSE
+                                HOUSING</p>
+                            <p class="text-body mb-8">GMF telah menjadi mitra yang luar biasa bagi usaha peternakan
+                                saya. Dukungan dan kualitas ternak yang mereka berikan sungguh luar biasa.</p>
+                            <div class="flex items-center">
+                                <a href="" class="text-title2 font-bold underline">Baca Selengkapnya</a>
+                                <img src="{{ asset('images/blog/arrow.png') }}" class="w-5 h-4 ml-2" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="flex-1 mb-8 md:mb-0">
+                    <!-- Artikel Pertama -->
+                    <a href="http://">
+                        <div class="rounded-xl mb-6 shadow-lg bg-transparent flex-shrink-0 w-full hover:bg-white transition ease-in-out duration-300 transform hover:scale-105">
+                            <div class="flex flex-row items-center">
+                                <img src="{{ asset('images/blog/pexels-katlovessteve-678451 1.png') }}"
+                                    class="rounded-xl w-32 h-28" alt="">
+                                <div class="mx-3">
+                                    <div class="flex items-center">
+                                        <img src="{{ asset('images/blog/clock.png') }}" class="w-4 h-4">
+                                        <p class="text-body flex px-2">16 Mei 2024</p>
+                                    </div>
+                                    <p class="text-body font-bold mt-2">ATASI VIRUS PMK DENGAN DESINFEKSI DAN SANITASI
+                                        KANDANG SECARA RUTIN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Artikel Kedua -->
+                    <a href="http://" class="">
+                        <div class="rounded-xl mb-6 shadow-lg bg-transparent flex-shrink-0 w-full hover:bg-white transition ease-in-out duration-300 transform hover:scale-105">
+                            <div class="flex flex-row items-center">
+                                <img src="{{ asset('images/blog/pexels-maca-naparstek-456152-1153756 1.png') }}"
+                                    class="rounded-xl w-32 h-28" alt="">
+                                <div class="mx-3">
+                                    <div class="flex items-center">
+                                        <img src="{{ asset('images/blog/clock.png') }}" class="w-4 h-4">
+                                        <p class="text-body flex px-2">16 Mei 2024</p>
+                                    </div>
+                                    <p class="text-body font-bold mt-2">ATASI VIRUS PMK DENGAN DESINFEKSI DAN SANITASI
+                                        KANDANG SECARA RUTIN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                
+                    <!-- Artikel Ketiga -->
+                    <a href="">
+                        <div class="rounded-xl mb-6 shadow-lg bg-transparent flex-shrink-0 w-full hover:bg-white transition ease-in-out duration-300 transform hover:scale-105">
+                            <div class="flex flex-row items-center">
+                                <img src="{{ asset('images/blog/pexels-pixabay-37657 1.png') }}"
+                                    class="rounded-xl w-32 h-28" alt="">
+                                <div class="mx-3">
+                                    <div class="flex items-center">
+                                        <img src="{{ asset('images/blog/clock.png') }}" class="w-4 h-4">
+                                        <p class="text-body flex px-2">16 Mei 2024</p>
+                                    </div>
+                                    <p class="text-body font-bold mt-2">ATASI VIRUS PMK DENGAN DESINFEKSI DAN SANITASI
+                                        KANDANG SECARA RUTIN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
     <script>
-        document.getElementById('prev-btn').addEventListener('click', function () {
-            
-        });
-    
-        document.getElementById('next-btn').addEventListener('click', function () {
-            
-        });
+        document.getElementById('prev-btn').addEventListener('click', function() {});
+
+        document.getElementById('next-btn').addEventListener('click', function() {});
     </script>
-    @livewire('components.about')
+    @livewire('components.footer')
     @vite('resources/js/app.js')
     <script src="{{ asset('assets/script.js') }}"></script>
 </body>
