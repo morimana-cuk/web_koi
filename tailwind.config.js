@@ -23,6 +23,7 @@ export default {
                 tblack: '#1F2937',
                 caption: '#9CA3AF',
                 lwhite: '#F5F5F5',
+                tgrey: '#9CA3AF',
             },
             fontSize: {
                 'h1': '48px',

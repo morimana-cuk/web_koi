@@ -18,3 +18,17 @@ body {
     transform: scale(1.05);
     cursor: pointer;
 }
+
+#prev-btn, #next-btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#prev-btn:hover {
+    background-color: #FD7E0B;
+    color: white;
+}
+
+#next-btn:hover {
+    background-color: white;
+    color: #FD7E0B;
+}
