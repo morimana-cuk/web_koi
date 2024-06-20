@@ -28,7 +28,7 @@
             <main class="flex-1 overflow-y-auto p-4">
                 <div class="bg-white shadow-lg rounded-lg mb-4">
                     <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                        <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
+                        <h6 class="m-0 font-semibold text-gray-700">Riwayat</h6>
                     </div>
                     <div class="px-4 pb-4">
                         <div class="overflow-x-auto mt-4">
