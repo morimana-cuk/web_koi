@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChartsController;
+
+Route::get('chartdioksida', [ChartsController::class, 'dioksida'])->name('api.chartdioksida');
+Route::get('chartmetana', [ChartsController::class, 'metana'])->name('api.chartmetana');
 
 Route::view('/', 'welcome');
 
