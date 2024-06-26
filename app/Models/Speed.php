@@ -11,4 +11,3 @@ class Speed extends Model
 
     protected $fillable = ['speed'];
 }
-

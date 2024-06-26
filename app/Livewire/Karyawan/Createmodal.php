@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Livewire\Karyawan;
-use Livewire\Component;
+
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Component;
 
 class Createmodal extends Component
 {
     public $name;
+
     public $email;
+
     public $address;
+
     public $password;
 
     public function render()

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Gumukmas Admin',
             'email' => 'admin@gmail.com',
             'password' => '12345678',
-            'address' => 'jl. Sultan Agung No.42, Dusun Krajan, Purwosari, Gumukmas, Jember'
+            'address' => 'jl. Sultan Agung No.42, Dusun Krajan, Purwosari, Gumukmas, Jember',
         ]);
     }
 }
