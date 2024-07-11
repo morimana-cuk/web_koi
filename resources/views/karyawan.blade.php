@@ -62,8 +62,6 @@
             </form>
         </div>
     </div>
-    @livewire('karyawan.createmodal')
-
     <!-- JavaScript untuk fitur-fitur seperti dropdown, modal, dll -->
     <script>
         // Fungsi untuk toggle dropdown

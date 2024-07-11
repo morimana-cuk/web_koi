@@ -6,6 +6,7 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class Show extends Component
 {
@@ -35,25 +36,45 @@ class Show extends Component
         session()->flash('success', 'Data karyawan berhasil dihapus.');
     }
 
+    public function resetForm()
+    {
+        $this->reset();
+        $this->resetValidation();
+    }
+    
     public function save()
     {
         $validated = $this->validate([
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
             'address' => 'required|max:255',
-            'password' => 'required|min:6',
+        ], [
+            'name.required' => 'Nama wajib diisi.',
+            'name.max' => 'Nama tidak boleh lebih dari 255 karakter.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Email tidak valid.',
+            'email.max' => 'Email tidak boleh lebih dari 255 karakter.',
+            'email.unique' => 'Email sudah digunakan oleh pengguna lain.',
+            'address.required' => 'Alamat wajib diisi.',
+            'address.max' => 'Alamat tidak boleh lebih dari 255 karakter.',
         ]);
-
+    
         User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'address' => $validated['address'],
-            'password' => Hash::make($validated['password']),
+            'password' => Hash::make('Gumukmas123'), // Default password
         ]);
-
+    
         session()->flash('success', 'Data karyawan berhasil ditambahkan.');
-        $this->reset();
+        $this->resetForm();
     }
+    
+    public function resetEditForm()
+{
+    $this->reset(['updatename', 'updateemail', 'updateaddress', 'selectedUser']);
+    $this->resetValidation();
+}
 
     public function edit(User $user)
     {
@@ -61,23 +82,30 @@ class Show extends Component
         $this->updatename = $user->name;
         $this->updateemail = $user->email;
         $this->updateaddress = $user->address;
+        
+        // dd($this->selectedUser, $this->updatename, $this->updateemail, $this->updateaddress);
     }
+    
 
-    public function update()
+    public function update($userId)
     {
-        $validated = $this->validate([
-            'updatename' => 'required|max:255',
-            'updateemail' => 'required|email|max:255',
-            'updateaddress' => 'required|max:255',
+        $validatedData = $this->validate([
+            'updatename' => 'required|string|max:255',
+            'updateemail' => 'required|email|unique:users,email,'.$userId,
+            'updateaddress' => 'required|string|max:255',
         ]);
-
-        $this->selectedUser->update([
-            'name' => $validated['updatename'],
-            'email' => $validated['updateemail'],
-            'address' => $validated['updateaddress'],
+    
+        $user = User::findOrFail($userId);
+        $user->update([
+            'name' => $this->updatename,
+            'email' => $this->updateemail,
+            'address' => $this->updateaddress,
         ]);
-
-        session()->flash('success', 'Data karyawan berhasil diperbarui.');
-        $this->reset();
+        session()->flash('success', 'Data karyawan berhasil diupdate.');
+    
+        // Reset form fields
+        $this->resetEditForm();
     }
+    
+    
 }
