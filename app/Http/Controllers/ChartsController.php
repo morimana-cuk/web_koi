@@ -7,6 +7,7 @@ use App\Models\Humidity;
 use App\Models\Metana;
 use App\Models\Speed;
 use App\Models\Temperature;
+use App\Models\Amonia;
 
 class ChartsController extends Controller
 {
@@ -118,6 +119,34 @@ class ChartsController extends Controller
                 'latest' => [
                     'id_temperature' => $latestData->id_temperature,
                     'nilai_temperature' => $latestData->nilai_temperature,
+                    'created_at' => $latestData->created_at,
+                    'updated_at' => $latestData->updated_at,
+                ],
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+    public function amonia()
+    {
+        try {
+            // Buat data speed acak
+            Amonia::create(['id_alat' => 1, 'nilai_amonia' => rand(60, 65)]);
+
+            // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
+            $speeds = Amonia::latest()->take(30)->get()->sortBy('id_amonia');
+            $labels = $speeds->pluck('id_amonia')->toArray();
+            $data = $speeds->pluck('nilai_amonia')->toArray();
+
+            $latestData = Amonia::latest()->first();
+
+            return response()->json([
+                'labels' => $labels,
+                'data' => $data,
+                'latest' => [
+                    'id_amonia' => $latestData->id_amonia,
+                    'nilai_amonia' => $latestData->nilai_amonia,
                     'created_at' => $latestData->created_at,
                     'updated_at' => $latestData->updated_at,
                 ],

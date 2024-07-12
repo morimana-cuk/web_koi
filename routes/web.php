@@ -8,6 +8,7 @@ Route::view('/', 'welcome');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
     Route::get('chartdioksida', [ChartsController::class, 'dioksida'])->name('api.chartdioksida');
+    Route::get('chartamonia', [ChartsController::class, 'amonia'])->name('api.chartamonia');
     Route::get('chartmetana', [ChartsController::class, 'metana'])->name('api.chartmetana');
     Route::get('charthumidity', [ChartsController::class, 'humidity'])->name('api.charthumidity');
     Route::get('charttemperature', [ChartsController::class, 'temperature'])->name('api.charttemperature');

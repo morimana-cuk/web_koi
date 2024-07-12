@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Amonia extends Model
 {
-    use HasFactory;
+    protected $table = 'amonia';
+
+    protected $fillable = ['id_alat', 'nilai_amonia'];
 }

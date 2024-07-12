@@ -64,14 +64,81 @@
 
     {{ $users->links() }}
     @if ($selectedUser)
-    <div id="modaledit{{ $selectedUser->id }}" tabindex="-1" aria-hidden="true"
-        class="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden flex justify-center items-center">
+        <div id="modaledit{{ $selectedUser->id }}" tabindex="-1" aria-hidden="true"
+            class="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden flex justify-center items-center">
+            <div class="fixed inset-0 bg-gray-800 bg-opacity-50"></div>
+            <div class="relative p-4 w-full max-w-md max-h-screen">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <button type="button"
+                        class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                        wire:click="resetEditForm" data-modal-hide="modaledit{{ $selectedUser->id }}">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Tutup modal</span>
+                    </button>
+                    <div class="px-6 py-6 lg:px-8">
+                        <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Karyawan</h3>
+                        <form wire:submit.prevent="update({{ $selectedUser->id }})">
+                            <div class="mb-4">
+                                <label for="updatename"
+                                    class="block text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+                                <input wire:model.defer="updatename" type="text" name="updatename" id="updatename"
+                                    class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                @error('updatename')
+                                    <span class="text-red-600 text-body">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="updateemail"
+                                    class="block text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                <input wire:model.defer="updateemail" type="email" name="updateemail" id="updateemail"
+                                    class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                @error('updateemail')
+                                    <span class="text-red-600 text-body">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="updateaddress"
+                                    class="block text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
+                                <input wire:model.defer="updateaddress" type="text" name="updateaddress"
+                                    id="updateaddress"
+                                    class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                @error('updateaddress')
+                                    <span class="text-red-600 text-body">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-dgreen text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Simpan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @livewireScripts
+
+        <script>
+            document.addEventListener('livewire:load', function() {
+                Livewire.on('closeEditModal', () => {
+                    document.getElementById('modaledit{{ $selectedUser->id }}').setAttribute('aria-hidden',
+                        'true');
+                    document.getElementById('modaledit{{ $selectedUser->id }}').classList.add('hidden');
+                });
+            });
+        </script>
+    @endif
+
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+        class="{{ $errors->any() ? 'flex' : 'hidden' }} fixed inset-0 z-50 overflow-y-auto overflow-x-hidden flex justify-center items-center">
         <div class="fixed inset-0 bg-gray-800 bg-opacity-50"></div>
         <div class="relative p-4 w-full max-w-md max-h-screen">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <button type="button"
                     class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                    wire:click="resetEditForm" data-modal-hide="modaledit{{ $selectedUser->id }}">
+                    wire:click="resetForm" data-modal-hide="default-modal">
                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -81,116 +148,49 @@
                     <span class="sr-only">Tutup modal</span>
                 </button>
                 <div class="px-6 py-6 lg:px-8">
-                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Karyawan</h3>
-                    <form wire:submit.prevent="update({{ $selectedUser->id }})">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Tambah Karyawan</h3>
+                    <form wire:submit.prevent="save">
                         <div class="mb-4">
-                            <label for="updatename"
+                            <label for="name"
                                 class="block text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                            <input wire:model.defer="updatename" type="text" name="updatename" id="updatename"
+                            <input wire:model.defer="name" type="text" name="name" id="name"
                                 class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            @error('updatename')
+                            @error('name')
                                 <span class="text-red-600 text-body">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="mb-4">
-                            <label for="updateemail"
+                            <label for="email"
                                 class="block text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                            <input wire:model.defer="updateemail" type="email" name="updateemail" id="updateemail"
+                            <input wire:model.defer="email" type="email" name="email" id="email"
                                 class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            @error('updateemail')
+                            @error('email')
                                 <span class="text-red-600 text-body">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="mb-4">
-                            <label for="updateaddress"
+                            <label for="address"
                                 class="block text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                            <input wire:model.defer="updateaddress" type="text" name="updateaddress"
-                                id="updateaddress"
+                            <input wire:model.defer="address" type="text" name="address" id="address"
                                 class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            @error('updateaddress')
+                            @error('address')
                                 <span class="text-red-600 text-body">{{ $message }}</span>
                             @enderror
                         </div>
-                        <button type="submit"
+                        <div class="mb-4">
+                            <label for="password"
+                                class="block text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            <input type="password" name="password" id="password"
+                                class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                value="Gumukmas123" readonly>
+                        </div>
+                        <button type="submit" data-modal-hide="default-modal"
                             class="w-full bg-dgreen text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Simpan</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    @livewireScripts
-    
-    <script>
-        document.addEventListener('livewire:load', function() {
-            Livewire.on('closeEditModal', () => {
-                document.getElementById('modaledit{{ $selectedUser->id }}').setAttribute('aria-hidden', 'true');
-                document.getElementById('modaledit{{ $selectedUser->id }}').classList.add('hidden');
-            });
-        });
-    </script>
-    
-    @endif
-
-    <div id="default-modal" tabindex="-1" aria-hidden="true"
-    class="{{ $errors->any() ? 'flex' : 'hidden' }} fixed inset-0 z-50 overflow-y-auto overflow-x-hidden flex justify-center items-center">
-    <div class="fixed inset-0 bg-gray-800 bg-opacity-50"></div>
-    <div class="relative p-4 w-full max-w-md max-h-screen">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <button type="button"
-                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                wire:click="resetForm" data-modal-hide="default-modal">
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                <span class="sr-only">Tutup modal</span>
-            </button>
-            <div class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Tambah Karyawan</h3>
-                <form wire:submit.prevent="save">
-                    <div class="mb-4">
-                        <label for="name"
-                            class="block text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                        <input wire:model.defer="name" type="text" name="name" id="name"
-                            class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        @error('name')
-                            <span class="text-red-600 text-body">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="email"
-                            class="block text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                        <input wire:model.defer="email" type="email" name="email" id="email"
-                            class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        @error('email')
-                            <span class="text-red-600 text-body">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="address"
-                            class="block text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                        <input wire:model.defer="address" type="text" name="address" id="address"
-                            class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        @error('address')
-                            <span class="text-red-600 text-body">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="password"
-                            class="block text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" name="password" id="password"
-                            class="block w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 sm:text-sm border-gray-300 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-600 dark:border-gray-500 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            value="Gumukmas123" readonly>
-                    </div>
-                    <button type="submit" data-modal-hide="default-modal"
-                        class="w-full bg-dgreen text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Simpan</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 </div>
