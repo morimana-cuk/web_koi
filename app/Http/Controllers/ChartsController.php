@@ -19,7 +19,7 @@ class ChartsController extends Controller
     {
         try {
             // Buat data dioksida acak
-            Dioksida::create(['id_alat' => 1, 'nilai_dioksida' => rand(60, 65)]);
+            Dioksida::create(['id_alat' => 2, 'nilai_dioksida' => rand(60, 65)]);
 
             // Ambil 30 data dioksida terakhir dan urutkan berdasarkan ID
             $speeds = Dioksida::latest()->take(30)->get()->sortBy('id_dioksida');
@@ -48,7 +48,7 @@ class ChartsController extends Controller
     {
         try {
             // Buat data speed acak
-            Metana::create(['id_alat' => 1, 'nilai_metana' => rand(60, 65)]);
+            Metana::create(['id_alat' => 2, 'nilai_metana' => rand(60, 65)]);
 
             // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
             $speeds = Metana::latest()->take(30)->get()->sortBy('id_metana');
@@ -76,7 +76,7 @@ class ChartsController extends Controller
     {
         try {
             // Buat data speed acak
-            Humidity::create(['id_alat' => 1, 'nilai_humidity' => rand(60, 65)]);
+            Humidity::create(['id_alat' => 2, 'nilai_humidity' => rand(60, 65)]);
 
             // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
             $speeds = Humidity::latest()->take(30)->get()->sortBy('id_humidity');
@@ -104,7 +104,7 @@ class ChartsController extends Controller
     {
         try {
             // Buat data speed acak
-            Temperature::create(['id_alat' => 1, 'nilai_temperature' => rand(60, 65)]);
+            Temperature::create(['id_alat' => 2, 'nilai_temperature' => rand(60, 65)]);
 
             // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
             $speeds = Temperature::latest()->take(30)->get()->sortBy('id_temperature');
@@ -132,7 +132,7 @@ class ChartsController extends Controller
     {
         try {
             // Buat data speed acak
-            Amonia::create(['id_alat' => 1, 'nilai_amonia' => rand(60, 65)]);
+            Amonia::create(['id_alat' => 2, 'nilai_amonia' => rand(60, 65)]);
 
             // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
             $speeds = Amonia::latest()->take(30)->get()->sortBy('id_amonia');

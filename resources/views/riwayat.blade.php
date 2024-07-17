@@ -29,11 +29,21 @@
                 <div class="bg-white shadow-lg rounded-lg mb-4">
                     <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
                         <h6 class="m-0 font-semibold text-gray-700">Riwayat</h6>
+                        <div class="flex items-center justify-center">
+                            <button href="" data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                    class="py-1 px-3 bg-dgreen text-body font-semibold text-lwhite rounded-md flex items-center space-x-2">
+                                <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                     viewBox="0 0 16 18">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                                </svg>
+                                <span>Export</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="px-4 pb-4">
                         <div class="overflow-x-auto mt-4">
-                            <!-- Livewire Component untuk menampilkan data karyawan -->
-                            {{-- @livewire('karyawan.show') --}}
+                            @livewire('riwayat.show')
                         </div>
                     </div>
                 </div>
