@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
     <style>
-        /* Atur warna latar belakang yang sesuai */
         body {
             background-color: #f3f4f6;
         }
