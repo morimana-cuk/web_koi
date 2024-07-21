@@ -416,7 +416,7 @@
 
         var updateChartDioksida = function() {
             $.ajax({
-                url: "{{ route('api.chartdioksida') }}",
+                url: "{{ route('api.chartdioksida', ['id' => 1]) }}",
                 type: 'GET',
                 dataType: 'json',
                 headers: {
@@ -464,7 +464,7 @@
 
         var updateChartMetana = function() {
             $.ajax({
-                url: "{{ route('api.chartmetana') }}",
+                url: "{{ route('api.chartmetana', ['id' => 1]) }}",
                 type: 'GET',
                 dataType: 'json',
                 headers: {
@@ -512,7 +512,7 @@
 
         var updateChartHumidity = function() {
             $.ajax({
-                url: "{{ route('api.charthumidity') }}",
+                url: "{{ route('api.charthumidity', ['id' => 1]) }}",
                 type: 'GET',
                 dataType: 'json',
                 headers: {
@@ -560,7 +560,7 @@
 
         var updateChartTemperature = function() {
             $.ajax({
-                url: "{{ route('api.charttemperature') }}",
+                url: "{{ route('api.charttemperature', ['id' => 1]) }}",
                 type: 'GET',
                 dataType: 'json',
                 headers: {
@@ -608,7 +608,7 @@
 
         var updateChartAmonia = function() {
             $.ajax({
-                url: "{{ route('api.chartamonia') }}",
+                url: "{{ route('api.chartamonia', ['id' => 1]) }}",
                 type: 'GET',
                 dataType: 'json',
                 headers: {

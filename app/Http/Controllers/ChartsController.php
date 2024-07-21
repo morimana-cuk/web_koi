@@ -8,91 +8,62 @@ use App\Models\Humidity;
 use App\Models\Metana;
 use App\Models\Speed;
 use App\Models\Temperature;
+use Illuminate\Http\Request;
+
 
 class ChartsController extends Controller
 {
     public function index()
     {
-        // Ambil data dari model
-        $Dioksida2 = Dioksida::where('id_alat', 2)->offset(0)
-            ->limit(1)->latest()->get();
-        $Metana2 = Metana::where('id_alat', 2)->offset(0)
-            ->limit(1)->latest()->get();
-        $Humidity2 = Humidity::where('id_alat', 2)->offset(0)
-            ->limit(1)->latest()->get();
-        $Temperature2 = Temperature::where('id_alat', 2)->offset(0)
-            ->limit(1)->latest()->get();
-        $Amonia2 = Amonia::where('id_alat', 2)->offset(0)
-            ->limit(1)->latest()->get();
+        function getLatestData($id_alat)
+        {
+            return [
+                'Dioksida' => Dioksida::where('id_alat', $id_alat)->limit(1)->latest()->get(),
+                'Metana' => Metana::where('id_alat', $id_alat)->limit(1)->latest()->get(),
+                'Humidity' => Humidity::where('id_alat', $id_alat)->limit(1)->latest()->get(),
+                'Temperature' => Temperature::where('id_alat', $id_alat)->limit(1)->latest()->get(),
+                'Amonia' => Amonia::where('id_alat', $id_alat)->limit(1)->latest()->get()
+            ];
+        }
+    
+        $data1 = getLatestData(1);
+        $data2 = getLatestData(2);
+        $data3 = getLatestData(3);
+        $data4 = getLatestData(4);
+    
+        $data = [
+            'Dioksida1' => $data1['Dioksida'],
+            'Metana1' => $data1['Metana'],
+            'Humidity1' => $data1['Humidity'],
+            'Temperature1' => $data1['Temperature'],
+            'Amonia1' => $data1['Amonia'],
+    
+            'Dioksida2' => $data2['Dioksida'],
+            'Metana2' => $data2['Metana'],
+            'Humidity2' => $data2['Humidity'],
+            'Temperature2' => $data2['Temperature'],
+            'Amonia2' => $data2['Amonia'],
+    
+            'Dioksida3' => $data3['Dioksida'],
+            'Metana3' => $data3['Metana'],
+            'Humidity3' => $data3['Humidity'],
+            'Temperature3' => $data3['Temperature'],
+            'Amonia3' => $data3['Amonia'],
+    
+            'Dioksida4' => $data4['Dioksida'],
+            'Metana4' => $data4['Metana'],
+            'Humidity4' => $data4['Humidity'],
+            'Temperature4' => $data4['Temperature'],
+            'Amonia4' => $data4['Amonia'],
+        ];
 
-        $Dioksida1 = Dioksida::where('id_alat', 1)->offset(0)
-            ->limit(1)->latest()->get();
-        $Metana1 = Metana::where('id_alat', 1)->offset(0)
-            ->limit(1)->latest()->get();
-        $Humidity1 = Humidity::where('id_alat', 1)->offset(0)
-            ->limit(1)->latest()->get();
-        $Temperature1 = Temperature::where('id_alat', 1)->offset(0)
-            ->limit(1)->latest()->get();
-        $Amonia1 = Amonia::where('id_alat', 1)->offset(0)
-            ->limit(1)->latest()->get();
-
-        $Dioksida3 = Dioksida::where('id_alat', 3)->offset(0)
-            ->limit(1)->latest()->get();
-        $Metana3 = Metana::where('id_alat', 3)->offset(0)
-            ->limit(1)->latest()->get();
-        $Humidity3 = Humidity::where('id_alat', 3)->offset(0)
-            ->limit(1)->latest()->get();
-        $Temperature3 = Temperature::where('id_alat', 3)->offset(0)
-            ->limit(1)->latest()->get();
-        $Amonia3 = Amonia::where('id_alat', 3)->offset(0)
-            ->limit(1)->latest()->get();
-
-        $Dioksida4 = Dioksida::where('id_alat', 4)->offset(0)
-            ->limit(1)->latest()->get();
-        $Metana4 = Metana::where('id_alat', 4)->offset(0)
-            ->limit(1)->latest()->get();
-        $Humidity4 = Humidity::where('id_alat', 4)->offset(0)
-            ->limit(1)->latest()->get();
-        $Temperature4 = Temperature::where('id_alat', 4)->offset(0)
-            ->limit(1)->latest()->get();
-        $Amonia4 = Amonia::where('id_alat', 4)->offset(0)
-            ->limit(1)->latest()->get();
-
-        // Kembalikan data ke tampilan Blade
-        return view('dashboard', [
-            'Dioksida1' => $Dioksida1,
-            'Metana1' => $Metana1,
-            'Humidity1' => $Humidity1,
-            'Temperature1' => $Temperature1,
-            'Amonia1' => $Amonia1,
-            
-            'Dioksida2' => $Dioksida2,
-            'Metana2' => $Metana2,
-            'Humidity2' => $Humidity2,
-            'Temperature2' => $Temperature2,
-            'Amonia2' => $Amonia2,
-
-            'Dioksida3' => $Dioksida3,
-            'Metana3' => $Metana3,
-            'Humidity3' => $Humidity3,
-            'Temperature3' => $Temperature3,
-            'Amonia3' => $Amonia3,
-
-            'Dioksida4' => $Dioksida4,
-            'Metana4' => $Metana4,
-            'Humidity4' => $Humidity4,
-            'Temperature4' => $Temperature4,
-            'Amonia4' => $Amonia4,
-        ]);
+        return view('dashboard', $data);
     }
+    
 
-    public function dioksida()
+    public function dioksida(Request $request, $id)
     {
         try {
-            // Buat data dioksida acak
-            // Dioksida::create(['id_alat' => 2, 'nilai_dioksida' => rand(60, 65)]);
-
-            // Ambil 30 data dioksida terakhir dan urutkan berdasarkan ID
             $speeds = Dioksida::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_dioksida');
             $labels = $speeds->pluck('id_dioksida')->toArray();
             $data = $speeds->pluck('nilai_dioksida')->toArray();
@@ -115,13 +86,14 @@ class ChartsController extends Controller
         }
     }
 
-    public function metana()
+    public function detaildashboard(Request $request, $id)
+    {
+        return view('dashboard/detaildashboard');
+    }
+
+    public function metana(Request $request, $id)
     {
         try {
-            // Buat data speed acak
-            // Metana::create(['id_alat' => 2, 'nilai_metana' => rand(60, 65)]);
-
-            // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
             $speeds = Metana::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_metana');
             $labels = $speeds->pluck('id_metana')->toArray();
             $data = $speeds->pluck('nilai_metana')->toArray();
@@ -143,13 +115,9 @@ class ChartsController extends Controller
         }
     }
 
-    public function humidity()
+    public function humidity(Request $request, $id)
     {
         try {
-            // Buat data speed acak
-            // Humidity::create(['id_alat' => 2, 'nilai_humidity' => rand(60, 65)]);
-
-            // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
             $speeds = Humidity::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_humidity');
             $labels = $speeds->pluck('id_humidity')->toArray();
             $data = $speeds->pluck('nilai_humidity')->toArray();
@@ -171,13 +139,9 @@ class ChartsController extends Controller
         }
     }
 
-    public function temperature()
+    public function temperature(Request $request, $id)
     {
         try {
-            // Buat data speed acak
-            // Temperature::create(['id_alat' => 2, 'nilai_suhu' => rand(60, 65)]);
-
-            // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
             $speeds = Temperature::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_temp');
             $labels = $speeds->pluck('id_temp')->toArray();
             $data = $speeds->pluck('nilai_suhu')->toArray();
@@ -199,13 +163,9 @@ class ChartsController extends Controller
         }
     }
 
-    public function amonia()
+    public function amonia(Request $request, $id)
     {
         try {
-            // Buat data speed acak
-            // Amonia::create(['id_alat' => 2, 'nilai_amonia' => rand(60, 65)]);
-
-            // Ambil 30 data speed terakhir dan urutkan berdasarkan ID
             $speeds = Amonia::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_amonia');
             $labels = $speeds->pluck('id_amonia')->toArray();
             $data = $speeds->pluck('nilai_amonia')->toArray();
