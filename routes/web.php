@@ -15,6 +15,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('karyawan', 'karyawan')->name('karyawan');
     Route::view('riwayat', 'riwayat')->name('riwayat');
     Route::view('blog', 'blog')->name('blog');
+    Route::view('addblog', 'addblog')->name('addblog');
     Route::view('profile', 'profile')->name('profile');
 });
 

@@ -3,10 +3,9 @@
 namespace App\Livewire\Karyawan;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
 
 class Show extends Component
 {
@@ -15,12 +14,19 @@ class Show extends Component
     protected $listeners = ['karyawanAdded' => '$refresh'];
 
     public $name;
+
     public $email;
+
     public $address;
+
     public $password;
+
     public $updatename;
+
     public $updateemail;
+
     public $updateaddress;
+
     public $selectedUser;
 
     public function render()
@@ -41,7 +47,7 @@ class Show extends Component
         $this->reset();
         $this->resetValidation();
     }
-    
+
     public function save()
     {
         $validated = $this->validate([
@@ -58,23 +64,23 @@ class Show extends Component
             'address.required' => 'Alamat wajib diisi.',
             'address.max' => 'Alamat tidak boleh lebih dari 255 karakter.',
         ]);
-    
+
         User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'address' => $validated['address'],
             'password' => Hash::make('Gumukmas123'), // Default password
         ]);
-    
+
         session()->flash('success', 'Data karyawan berhasil ditambahkan.');
         $this->resetForm();
     }
-    
+
     public function resetEditForm()
-{
-    $this->reset(['updatename', 'updateemail', 'updateaddress', 'selectedUser']);
-    $this->resetValidation();
-}
+    {
+        $this->reset(['updatename', 'updateemail', 'updateaddress', 'selectedUser']);
+        $this->resetValidation();
+    }
 
     public function edit(User $user)
     {
@@ -82,10 +88,9 @@ class Show extends Component
         $this->updatename = $user->name;
         $this->updateemail = $user->email;
         $this->updateaddress = $user->address;
-        
+
         // dd($this->selectedUser, $this->updatename, $this->updateemail, $this->updateaddress);
     }
-    
 
     public function update($userId)
     {
@@ -94,7 +99,7 @@ class Show extends Component
             'updateemail' => 'required|email|unique:users,email,'.$userId,
             'updateaddress' => 'required|string|max:255',
         ]);
-    
+
         $user = User::findOrFail($userId);
         $user->update([
             'name' => $this->updatename,
@@ -102,10 +107,8 @@ class Show extends Component
             'address' => $this->updateaddress,
         ]);
         session()->flash('success', 'Data karyawan berhasil diupdate.');
-    
+
         // Reset form fields
         $this->resetEditForm();
     }
-    
-    
 }

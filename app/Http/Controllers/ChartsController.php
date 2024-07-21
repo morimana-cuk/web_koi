@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amonia;
 use App\Models\Dioksida;
 use App\Models\Humidity;
 use App\Models\Metana;
 use App\Models\Speed;
 use App\Models\Temperature;
-use App\Models\Amonia;
 
 class ChartsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('dashboard');
     }
 
