@@ -50,205 +50,392 @@
 
             <!-- Main Content -->
             <main class="flex-1 overflow-y-auto p-4">
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="col-span-2">
-                        <div class="bg-white shadow-lg rounded-lg mb-4">
-                            <div
-                                class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                                <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
-                            </div>
-                            <div class="px-4 pb-4">
-                                <canvas id="chartTemperature"></canvas>
-                            </div>
+                <div class="gap-4">
+                    <div class="bg-white shadow-lg rounded-lg mb-4">
+                        <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
+                            <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
                         </div>
-                    </div>
-                    <div class="pb-4">
-                        <div
-                            class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
-                            <div class="flex justify-between w-full mb-6 items-center">
-                                <p class="text-white text-sm font-bold">Temperature (CH4)</p>
-                                <div class="flex items-center">
-                                    <div id="colorIndicatorTemperature" class="w-3 h-3 rounded-full mr-2"></div>
-                                    <p class="text-white text-sm" id="percentageValueTemperature"></p>
-                                </div>
+                        <div class="px-8 py-8">
+                            <div class="grid grid-cols-2 gap-4">
+                                <a href="{{ route('detail.dashboard', ['id' => 1]) }}" class="col-span-1">
+                                    <div
+                                        class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                        <div class="w-full mb-6 items-center mt-4">
+                                            <p class="text-white text-lg font-bold">Lokasi Alat 1</p>
+                                            <p class="text-white text-sm font-bold">Keterangan Lokasi:</p>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Suhu</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Temperature1->isNotEmpty())
+                                                            @foreach ($Temperature1 as $temperature)
+                                                                {{ $temperature->nilai_suhu }} C
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Temperature data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Kelembapan</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Humidity1->isNotEmpty())
+                                                            @foreach ($Humidity1 as $humidity)
+                                                                {{ $humidity->nilai_humidity }} %
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Humidity data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Ammonia</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Amonia1->isNotEmpty())
+                                                            @foreach ($Amonia1 as $amonia)
+                                                                {{ $amonia->nilai_amonia }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Amonia data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Karbon Dioksida</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Dioksida1->isNotEmpty())
+                                                            @foreach ($Dioksida1 as $dioksida)
+                                                                {{ $dioksida->nilai_dioksida }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Dioksida data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Metana</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Metana1->isNotEmpty())
+                                                            @foreach ($Metana1 as $metana)
+                                                                {{ $metana->nilai_metana }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Metana data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="{{ route('detail.dashboard', ['id' => 2]) }}" class="col-span-1">
+                                    <div
+                                        class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                        <div class="w-full mb-6 items-center mt-4">
+                                            <p class="text-white text-lg font-bold">Lokasi Alat 2</p>
+                                            <p class="text-white text-sm font-bold">Keterangan Lokasi:</p>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Suhu</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Temperature2->isNotEmpty())
+                                                            @foreach ($Temperature2 as $temperature)
+                                                                {{ $temperature->nilai_suhu }} C
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Temperature data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Kelembapan</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Humidity2->isNotEmpty())
+                                                            @foreach ($Humidity2 as $humidity)
+                                                                {{ $humidity->nilai_humidity }} %
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Humidity data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Ammonia</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Amonia2->isNotEmpty())
+                                                            @foreach ($Amonia2 as $amonia)
+                                                                {{ $amonia->nilai_amonia }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Amonia data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Karbon Dioksida</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Dioksida2->isNotEmpty())
+                                                            @foreach ($Dioksida2 as $dioksida)
+                                                                {{ $dioksida->nilai_dioksida }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Dioksida data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Metana</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Metana2->isNotEmpty())
+                                                            @foreach ($Metana2 as $metana)
+                                                                {{ $metana->nilai_metana }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Metana data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-
-                            <div class="progress-container">
-                                <div id="progressFillTemperature" class="progress-bar-fill"></div>
-                                <div id="progressNeedleTemperature" class="progress-needle"></div>
+                            <div class="grid grid-cols-2 gap-4 mt-4">
+                                <a href="{{ route('detail.dashboard', ['id' => 3]) }}" class="col-span-1">
+                                    <div
+                                        class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                        <div class="w-full mb-6 items-center mt-4">
+                                            <p class="text-white text-lg font-bold">Lokasi Alat 3</p>
+                                            <p class="text-white text-sm font-bold">Keterangan Lokasi:</p>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Suhu</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Temperature3->isNotEmpty())
+                                                            @foreach ($Temperature3 as $temperature3)
+                                                                {{ $temperature->nilai_suhu }} C
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Temperature data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Kelembapan</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Humidity3->isNotEmpty())
+                                                            @foreach ($Humidity3 as $humidity)
+                                                                {{ $humidity->nilai_humidity }} %
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Humidity data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Ammonia</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Amonia3->isNotEmpty())
+                                                            @foreach ($Amonia3 as $amonia)
+                                                                {{ $amonia->nilai_amonia }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Amonia data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Karbon Dioksida</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Dioksida3->isNotEmpty())
+                                                            @foreach ($Dioksida3 as $dioksida)
+                                                                {{ $dioksida->nilai_dioksida }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Dioksida data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Metana</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Metana3->isNotEmpty())
+                                                            @foreach ($Metana3 as $metana)
+                                                                {{ $metana->nilai_metana }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Metana data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="{{ route('detail.dashboard', ['id' => 4]) }}" class="col-span-1">
+                                    <div
+                                        class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                        <div class="w-full mb-6 items-center mt-4">
+                                            <p class="text-white text-lg font-bold">Lokasi Alat 4</p>
+                                            <p class="text-white text-sm font-bold">Keterangan Lokasi:</p>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Suhu</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Temperature4->isNotEmpty())
+                                                            @foreach ($Temperature4 as $temperature)
+                                                                {{ $temperature->nilai_suhu }} C
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Temperature data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Kelembapan</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Humidity4->isNotEmpty())
+                                                            @foreach ($Humidity4 as $humidity)
+                                                                {{ $humidity->nilai_humidity }} %
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Humidity data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Ammonia</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Amonia4->isNotEmpty())
+                                                            @foreach ($Amonia4 as $amonia)
+                                                                {{ $amonia->nilai_amonia }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Amonia data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Karbon Dioksida</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Dioksida4->isNotEmpty())
+                                                            @foreach ($Dioksida4 as $dioksida)
+                                                                {{ $dioksida->nilai_dioksida }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Dioksida data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <div class="flex justify-between">
+                                                <div class="flex w-full">
+                                                    <p class="text-white text-md font-bold w-1/3">Metana</p>
+                                                    <p class="text-white text-md font-bold w-1/6">:</p>
+                                                    <p class="text-white text-md font-bold w-1/2">
+                                                        @if ($Metana4->isNotEmpty())
+                                                            @foreach ($Metana4 as $metana)
+                                                                {{ $metana->nilai_metana }}
+                                                            @endforeach
+                                                        @else
+                                                            <p>No Metana data available.</p>
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-
-                            <div class="flex justify-between w-full mb-6">
-                                <p class="text-white text-sm">Buruk</p>
-                                <p class="text-white text-sm">Baik</p>
-                            </div>
-
-                            <p class="text-white text-sm">Temperature (CH4)</p>
-                            <p class="text-white text-sm">Saat ini</p>
-                            <div id="latestValueTemperature" class="text-white text-5xl font-bold mb-4"></div>
-                            <p id="lastUpdatedTemperature" class="text-white text-sm"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="col-span-2">
-                        <div class="bg-white shadow-lg rounded-lg mb-4">
-                            <div
-                                class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                                <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
-                            </div>
-                            <div class="px-4 pb-4">
-                                <canvas id="chartHumidity"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pb-4">
-                        <div
-                            class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
-                            <div class="flex justify-between w-full mb-6 items-center">
-                                <p class="text-white text-sm font-bold">Humidity (CH4)</p>
-                                <div class="flex items-center">
-                                    <div id="colorIndicatorHumidity" class="w-3 h-3 rounded-full mr-2"></div>
-                                    <p class="text-white text-sm" id="percentageValueHumidity"></p>
-                                </div>
-                            </div>
-
-                            <div class="progress-container">
-                                <div id="progressFillHumidity" class="progress-bar-fill"></div>
-                                <div id="progressNeedleHumidity" class="progress-needle"></div>
-                            </div>
-
-                            <div class="flex justify-between w-full mb-6">
-                                <p class="text-white text-sm">Buruk</p>
-                                <p class="text-white text-sm">Baik</p>
-                            </div>
-
-                            <p class="text-white text-sm">Humidity (CH4)</p>
-                            <p class="text-white text-sm">Saat ini</p>
-                            <div id="latestValueHumidity" class="text-white text-5xl font-bold mb-4"></div>
-                            <p id="lastUpdatedHumidity" class="text-white text-sm"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="col-span-2">
-                        <div class="bg-white shadow-lg rounded-lg mb-4">
-                            <div
-                                class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                                <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
-                            </div>
-                            <div class="px-4 pb-4">
-                                <canvas id="chartDioksida"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pb-4">
-                        <div
-                            class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
-                            <div class="flex justify-between w-full mb-6 items-center">
-                                <p class="text-white text-sm font-bold">Karbon Dioksida</p>
-                                <div class="flex items-center">
-                                    <div id="colorIndicator" class="w-3 h-3 rounded-full mr-2"></div>
-                                    <p class="text-white text-sm" id="percentageValue"></p>
-                                </div>
-                            </div>
-
-                            <div class="progress-container">
-                                <div id="progressFill" class="progress-bar-fill"></div>
-                                <div id="progressNeedle" class="progress-needle"></div>
-                            </div>
-                            <div class="flex justify-between w-full mb-6">
-                                <p class="text-white text-sm">Buruk</p>
-                                <p class="text-white text-sm">Baik</p>
-                            </div>
-                            <p class="text-white text-sm">Kadar Karbon Dioksida (CO2)</p>
-                            <p class="text-white text-sm">Saat ini</p>
-                            <div id="latestValueDioksida" class="text-white text-5xl font-bold mb-4"></div>
-                            <p id="lastUpdatedDioksida" class="text-white text-sm"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="col-span-2">
-                        <div class="bg-white shadow-lg rounded-lg mb-4">
-                            <div
-                                class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                                <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
-                            </div>
-                            <div class="px-4 pb-4">
-                                <canvas id="chartMetana"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pb-4">
-                        <div
-                            class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
-                            <div class="flex justify-between w-full mb-6 items-center">
-                                <p class="text-white text-sm font-bold">Karbon Metana (CH4)</p>
-                                <div class="flex items-center">
-                                    <div id="colorIndicatorMetana" class="w-3 h-3 rounded-full mr-2"></div>
-                                    <p class="text-white text-sm" id="percentageValueMetana"></p>
-                                </div>
-                            </div>
-
-                            <div class="progress-container">
-                                <div id="progressFillMetana" class="progress-bar-fill"></div>
-                                <div id="progressNeedleMetana" class="progress-needle"></div>
-                            </div>
-
-                            <div class="flex justify-between w-full mb-6">
-                                <p class="text-white text-sm">Buruk</p>
-                                <p class="text-white text-sm">Baik</p>
-                            </div>
-
-                            <p class="text-white text-sm">Kadar Metana (CH4)</p>
-                            <p class="text-white text-sm">Saat ini</p>
-                            <div id="latestValueMetana" class="text-white text-5xl font-bold mb-4"></div>
-                            <p id="lastUpdatedMetana" class="text-white text-sm"></p>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="col-span-2">
-                        <div class="bg-white shadow-lg rounded-lg mb-4">
-                            <div
-                                class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                                <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
-                            </div>
-                            <div class="px-4 pb-4">
-                                <canvas id="chartAmonia"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pb-4">
-                        <div
-                            class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
-                            <div class="flex justify-between w-full mb-6 items-center">
-                                <p class="text-white text-sm font-bold">Amonia</p>
-                                <div class="flex items-center">
-                                    <div id="colorIndicatorAmonia" class="w-3 h-3 rounded-full mr-2"></div>
-                                    <p class="text-white text-sm" id="percentageValueAmonia"></p>
-                                </div>
-                            </div>
-
-                            <div class="progress-container">
-                                <div id="progressFillAmonia" class="progress-bar-fill"></div>
-                                <div id="progressNeedleAmonia" class="progress-needle"></div>
-                            </div>
-
-                            <div class="flex justify-between w-full mb-6">
-                                <p class="text-white text-sm">Buruk</p>
-                                <p class="text-white text-sm">Baik</p>
-                            </div>
-
-                            <p class="text-white text-sm">Kadar Amonia</p>
-                            <p class="text-white text-sm">Saat ini</p>
-                            <div id="latestValueAmonia" class="text-white text-5xl font-bold mb-4"></div>
-                            <p id="lastUpdatedAmonia" class="text-white text-sm"></p>
                         </div>
                     </div>
                 </div>
@@ -395,7 +582,7 @@
                     borderColor: 'orange', // Warna garis ungu
                     borderWidth: 1,
                     backgroundColor: 'rgba(255, 165, 0, 0.2)'
-                    }]
+                }]
             },
             options: {
                 scales: {
