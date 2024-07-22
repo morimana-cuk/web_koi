@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::view('blog', 'blog')->name('blog');
+    Route::view('addblog', 'addblog')->name('addblog');
     Route::view('profile', 'profile')->name('profile');
 });
 

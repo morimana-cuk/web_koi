@@ -39,7 +39,7 @@ class Show extends Component
     public function deleteKaryawan(User $user)
     {
         $user->delete();
-        session()->flash('success', 'Data karyawan berhasil dihapus.');
+        session()->flash('successhapus', 'Data karyawan berhasil dihapus.');
     }
 
     public function resetForm()
@@ -106,7 +106,7 @@ class Show extends Component
             'email' => $this->updateemail,
             'address' => $this->updateaddress,
         ]);
-        session()->flash('success', 'Data karyawan berhasil diupdate.');
+        session()->flash('successedit', 'Data karyawan berhasil diupdate.');
 
         // Reset form fields
         $this->resetEditForm();

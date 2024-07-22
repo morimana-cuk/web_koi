@@ -430,7 +430,7 @@
 
                     // Update the latest value and last updated time
                     var latestValue = data.latest.nilai_dioksida;
-                    var lastUpdated = new Date(data.latest.updated_at).toLocaleString();
+                    var lastUpdated = new Date(data.latest.created_at).toLocaleString();
                     $('#latestValueDioksida').text(latestValue);
                     $('#lastUpdatedDioksida').text('Terakhir update ' + lastUpdated);
 
@@ -478,7 +478,7 @@
 
                     // Update the latest value and last updated time
                     var latestValue = data.latest.nilai_metana;
-                    var lastUpdated = new Date(data.latest.updated_at).toLocaleString();
+                    var lastUpdated = new Date(data.latest.created_at).toLocaleString();
                     $('#latestValueMetana').text(latestValue);
                     $('#lastUpdatedMetana').text('Terakhir update ' + lastUpdated);
 
@@ -526,7 +526,7 @@
 
                     // Update the latest value and last updated time
                     var latestValue = data.latest.nilai_humidity;
-                    var lastUpdated = new Date(data.latest.updated_at).toLocaleString();
+                    var lastUpdated = new Date(data.latest.created_at).toLocaleString();
                     $('#latestValueHumidity').text(latestValue);
                     $('#lastUpdatedHumidity').text('Terakhir update ' + lastUpdated);
 
@@ -573,8 +573,8 @@
                     chartTemperature.update();
 
                     // Update the latest value and last updated time
-                    var latestValue = data.latest.nilai_temperature;
-                    var lastUpdated = new Date(data.latest.updated_at).toLocaleString();
+                    var latestValue = data.latest.nilai_suhu;
+                    var lastUpdated = new Date(data.latest.created_at).toLocaleString();
                     $('#latestValueTemperature').text(latestValue);
                     $('#lastUpdatedTemperature').text('Terakhir update ' + lastUpdated);
 
@@ -622,7 +622,7 @@
 
                     // Update the latest value and last updated time
                     var latestValue = data.latest.nilai_amonia;
-                    var lastUpdated = new Date(data.latest.updated_at).toLocaleString();
+                    var lastUpdated = new Date(data.latest.created_at).toLocaleString();
                     $('#latestValueAmonia').text(latestValue);
                     $('#lastUpdatedAmonia').text('Terakhir update ' + lastUpdated);
 

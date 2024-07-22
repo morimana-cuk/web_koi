@@ -75,7 +75,7 @@
                                                                 {{ $temperature->nilai_suhu }} C
                                                             @endforeach
                                                         @else
-                                                            <p>No Temperature data available.</p>
+                                                            <p class="text-red-500">No Temperature data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -92,7 +92,7 @@
                                                                 {{ $humidity->nilai_humidity }} %
                                                             @endforeach
                                                         @else
-                                                            <p>No Humidity data available.</p>
+                                                            <p class="text-red-500">No Humidity data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -109,7 +109,7 @@
                                                                 {{ $amonia->nilai_amonia }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Amonia data available.</p>
+                                                            <p class="text-red-500">No Ammonia data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -126,7 +126,7 @@
                                                                 {{ $dioksida->nilai_dioksida }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Dioksida data available.</p>
+                                                            <p class="text-red-500">No Dioksida data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -143,7 +143,7 @@
                                                                 {{ $metana->nilai_metana }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Metana data available.</p>
+                                                            <p class="text-red-500">No Metana data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -151,6 +151,7 @@
                                         </div>
                                     </div>
                                 </a>
+
                                 <a href="{{ route('detail.dashboard2', ['id' => 2]) }}" class="col-span-1">
                                     <div
                                         class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
@@ -169,7 +170,7 @@
                                                                 {{ $temperature->nilai_suhu }} C
                                                             @endforeach
                                                         @else
-                                                            <p>No Temperature data available.</p>
+                                                            <p class="text-red-500">No Temperature data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -186,7 +187,7 @@
                                                                 {{ $humidity->nilai_humidity }} %
                                                             @endforeach
                                                         @else
-                                                            <p>No Humidity data available.</p>
+                                                            <p class="text-red-500">No Humidity data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -203,7 +204,7 @@
                                                                 {{ $amonia->nilai_amonia }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Amonia data available.</p>
+                                                            <p class="text-red-500">No Ammonia data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -220,7 +221,7 @@
                                                                 {{ $dioksida->nilai_dioksida }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Dioksida data available.</p>
+                                                            <p class="text-red-500">No Dioksida data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -237,7 +238,7 @@
                                                                 {{ $metana->nilai_metana }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Metana data available.</p>
+                                                            <p class="text-red-500">No Metana data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -261,11 +262,11 @@
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
                                                         @if ($Temperature3->isNotEmpty())
-                                                            @foreach ($Temperature3 as $temperature3)
+                                                            @foreach ($Temperature3 as $temperature)
                                                                 {{ $temperature->nilai_suhu }} C
                                                             @endforeach
                                                         @else
-                                                            <p>No Temperature data available.</p>
+                                                            <p class="text-red-500">No Temperature data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -282,7 +283,7 @@
                                                                 {{ $humidity->nilai_humidity }} %
                                                             @endforeach
                                                         @else
-                                                            <p>No Humidity data available.</p>
+                                                            <p class="text-red-500">No Humidity data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -299,7 +300,7 @@
                                                                 {{ $amonia->nilai_amonia }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Amonia data available.</p>
+                                                            <p class="text-red-500">No Ammonia data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -316,7 +317,7 @@
                                                                 {{ $dioksida->nilai_dioksida }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Dioksida data available.</p>
+                                                            <p class="text-red-500">No Dioksida data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -333,7 +334,7 @@
                                                                 {{ $metana->nilai_metana }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Metana data available.</p>
+                                                            <p class="text-red-500">No Metana data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -342,8 +343,7 @@
                                     </div>
                                 </a>
                                 <a href="{{ route('detail.dashboard4', ['id' => 4]) }}" class="col-span-1">
-                                    <div
-                                        class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                    <div class="bg-dgreen h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
                                         <div class="w-full mb-6 items-center mt-4">
                                             <p class="text-white text-lg font-bold">Lokasi Alat 4</p>
                                             <p class="text-white text-sm font-bold">Keterangan Lokasi:</p>
@@ -359,7 +359,7 @@
                                                                 {{ $temperature->nilai_suhu }} C
                                                             @endforeach
                                                         @else
-                                                            <p>No Temperature data available.</p>
+                                                            <p class="text-red-500">No Temperature data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -376,7 +376,7 @@
                                                                 {{ $humidity->nilai_humidity }} %
                                                             @endforeach
                                                         @else
-                                                            <p>No Humidity data available.</p>
+                                                            <p class="text-red-500">No Humidity data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -393,7 +393,7 @@
                                                                 {{ $amonia->nilai_amonia }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Amonia data available.</p>
+                                                            <p class="text-red-500">No Ammonia data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -410,7 +410,7 @@
                                                                 {{ $dioksida->nilai_dioksida }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Dioksida data available.</p>
+                                                            <p class="text-red-500">No Dioksida data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>
@@ -427,7 +427,7 @@
                                                                 {{ $metana->nilai_metana }}
                                                             @endforeach
                                                         @else
-                                                            <p>No Metana data available.</p>
+                                                            <p class="text-red-500">No Metana data available.</p>
                                                         @endif
                                                     </p>
                                                 </div>

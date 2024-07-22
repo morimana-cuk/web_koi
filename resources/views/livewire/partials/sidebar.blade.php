@@ -81,6 +81,7 @@
                     </li>
                 </ul>
             </li>
+            @if (Auth::user()->role == 'admin')
             <li>
                 <a href="{{ route('karyawan') }}"
                     class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
@@ -93,6 +94,8 @@
                     Data Karyawan
                 </a>
             </li>
+            @else
+            @endif
             <li>
                 <a href="{{ route('blog') }}"
                     class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">

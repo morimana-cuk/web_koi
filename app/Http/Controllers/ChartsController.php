@@ -6,10 +6,8 @@ use App\Models\Amonia;
 use App\Models\Dioksida;
 use App\Models\Humidity;
 use App\Models\Metana;
-use App\Models\Speed;
 use App\Models\Temperature;
 use Illuminate\Http\Request;
-
 
 class ChartsController extends Controller
 {
@@ -22,34 +20,34 @@ class ChartsController extends Controller
                 'Metana' => Metana::where('id_alat', $id_alat)->limit(1)->latest()->get(),
                 'Humidity' => Humidity::where('id_alat', $id_alat)->limit(1)->latest()->get(),
                 'Temperature' => Temperature::where('id_alat', $id_alat)->limit(1)->latest()->get(),
-                'Amonia' => Amonia::where('id_alat', $id_alat)->limit(1)->latest()->get()
+                'Amonia' => Amonia::where('id_alat', $id_alat)->limit(1)->latest()->get(),
             ];
         }
-    
+
         $data1 = getLatestData(1);
         $data2 = getLatestData(2);
         $data3 = getLatestData(3);
         $data4 = getLatestData(4);
-    
+
         $data = [
             'Dioksida1' => $data1['Dioksida'],
             'Metana1' => $data1['Metana'],
             'Humidity1' => $data1['Humidity'],
             'Temperature1' => $data1['Temperature'],
             'Amonia1' => $data1['Amonia'],
-    
+
             'Dioksida2' => $data2['Dioksida'],
             'Metana2' => $data2['Metana'],
             'Humidity2' => $data2['Humidity'],
             'Temperature2' => $data2['Temperature'],
             'Amonia2' => $data2['Amonia'],
-    
+
             'Dioksida3' => $data3['Dioksida'],
             'Metana3' => $data3['Metana'],
             'Humidity3' => $data3['Humidity'],
             'Temperature3' => $data3['Temperature'],
             'Amonia3' => $data3['Amonia'],
-    
+
             'Dioksida4' => $data4['Dioksida'],
             'Metana4' => $data4['Metana'],
             'Humidity4' => $data4['Humidity'],
@@ -59,13 +57,14 @@ class ChartsController extends Controller
 
         return view('dashboard', $data);
     }
-    
 
     public function dioksida(Request $request, $id)
     {
         try {
             $speeds = Dioksida::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_dioksida');
-            $labels = $speeds->pluck('id_dioksida')->toArray();
+            $labels = $speeds->pluck('created_at')->map(function ($date) {
+                return $date->format('H:i');
+            })->toArray();
             $data = $speeds->pluck('nilai_dioksida')->toArray();
 
             // Ambil 1 data terakhir
@@ -95,7 +94,9 @@ class ChartsController extends Controller
     {
         try {
             $speeds = Metana::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_metana');
-            $labels = $speeds->pluck('id_metana')->toArray();
+            $labels = $speeds->pluck('created_at')->map(function ($date) {
+                return $date->format('H:i');
+            })->toArray();
             $data = $speeds->pluck('nilai_metana')->toArray();
 
             $latestData = Metana::latest()->first();
@@ -119,7 +120,9 @@ class ChartsController extends Controller
     {
         try {
             $speeds = Humidity::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_humidity');
-            $labels = $speeds->pluck('id_humidity')->toArray();
+            $labels = $speeds->pluck('created_at')->map(function ($date) {
+                return $date->format('H:i');
+            })->toArray();
             $data = $speeds->pluck('nilai_humidity')->toArray();
 
             $latestData = Humidity::latest()->first();
@@ -143,7 +146,9 @@ class ChartsController extends Controller
     {
         try {
             $speeds = Temperature::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_temp');
-            $labels = $speeds->pluck('id_temp')->toArray();
+            $labels = $speeds->pluck('created_at')->map(function ($date) {
+                return $date->format('H:i');
+            })->toArray();
             $data = $speeds->pluck('nilai_suhu')->toArray();
 
             $latestData = Temperature::latest()->first();
@@ -167,7 +172,9 @@ class ChartsController extends Controller
     {
         try {
             $speeds = Amonia::where('id_alat', $id)->latest()->take(30)->get()->sortBy('id_amonia');
-            $labels = $speeds->pluck('id_amonia')->toArray();
+            $labels = $speeds->pluck('created_at')->map(function ($date) {
+                return $date->format('H:i');
+            })->toArray();
             $data = $speeds->pluck('nilai_amonia')->toArray();
 
             $latestData = Amonia::latest()->first();
