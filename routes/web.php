@@ -1,18 +1,10 @@
 <?php
 
 use App\Http\Controllers\ChartsController;
-use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
-Route::controller(DeviceController::class)->prefix('/device')->group(function () {
-    Route::post('/amonia', [DeviceController::class, 'amonia']);
-    Route::post('/dioksida', [DeviceController::class, 'dioksida']);
-    Route::post('/metana', [DeviceController::class, 'metana']);
-    Route::post('/temperature', [DeviceController::class, 'temperature']);
-    Route::post('/humidity', [DeviceController::class, 'humidity']);
-});
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
