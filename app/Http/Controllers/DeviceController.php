@@ -40,6 +40,7 @@ class DeviceController extends Controller
                 'nilai_amonia' => $request->nilai,
                 'created_at' => $date,
             ]);
+
             return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
         } catch (\Throwable $th) {
             return response()->json('Data Gagal Ditambahkan');
@@ -55,6 +56,7 @@ class DeviceController extends Controller
                 'nilai_metana' => $request->nilai,
                 'created_at' => $date,
             ]);
+
             return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
         } catch (\Throwable $th) {
             return response()->json('Data Gagal Ditambahkan');
@@ -70,6 +72,7 @@ class DeviceController extends Controller
                 'nilai_suhu' => $request->nilai,
                 'created_at' => $date,
             ]);
+
             return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
         } catch (\Throwable $th) {
             return response()->json('Data Gagal Ditambahkan');
@@ -85,6 +88,7 @@ class DeviceController extends Controller
                 'nilai_humidity' => $request->nilai,
                 'created_at' => $date,
             ]);
+
             return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
         } catch (\Throwable $th) {
             return response()->json('Data Gagal Ditambahkan');
