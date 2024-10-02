@@ -25,10 +25,10 @@ new #[Layout('layouts.guest')] class extends Component {
 };
 ?>
 
-<div class="min-h-screen flex flex-col justify-center items-center pt-6 sm:pt-0 bg-dgreen-100">
+<div class="min-h-screen flex flex-col justify-center items-center pt-6 sm:pt-0 bg-red-400">
     <div class="text-center mb-6">
         <a href="/" wire:navigate>
-            <img src="{{ asset('images/login/logo-login.png') }}" class="w-20 h-20 mx-auto">
+            <img src="{{ asset('images/login/logo-login.png') }}" class="w-28 h-28 mx-auto">
         </a>
     </div>
 
@@ -41,7 +41,7 @@ new #[Layout('layouts.guest')] class extends Component {
             <form wire:submit.prevent="login" class="max-w-md bg-white mx-auto p-4 shadow-md rounded-lg">
                 <div class="text-center mt-4">
                     <h1 class="text-2xl font-bold text-black">Login</h1>
-                    <p class="text-gray-600 mt-2">Selamat datang di Gumukmas Farm Website</p>
+                    <p class="text-gray-600 mt-2">Selamat datang di Sanke Koi Website</p>
                 </div>
 
                 <!-- Email Address -->

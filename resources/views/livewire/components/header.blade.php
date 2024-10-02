@@ -1,7 +1,7 @@
 <header class="mt-7 mb-24">
     <nav class="flex justify-between items-center w-full mx-auto py-3 relative">
         <div class="flex-1 flex justify-start">
-            <a href="#" class="text-title1 text-dgreen font-bold">Gumukmas Multifarm</a>
+            <a href="#" class="text-title1 text-dgreen font-bold">Sanke Koi</a>
         </div>
         <input type="checkbox" id="menu-btn" class="hidden">
         <label for="menu-btn" class="lg:hidden cursor-pointer">

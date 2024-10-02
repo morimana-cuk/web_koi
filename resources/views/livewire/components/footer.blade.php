@@ -1,13 +1,10 @@
-<footer class="bg-dgreen" style="background-image: url('{{ asset('images/footer/footer.png') }}');">
+<footer class="bg-red-600" style="background-image: url('{{ asset('images/footer/footer.png') }}');">
     <div class="container w-full ">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Column 1 -->
             <div class="flex flex-col items-center md:items-start">
                 <img src="{{ asset('images/footer/logo.png') }}" class="w-24 h-24  mt-14 mb-6" alt="Image 1">
-                <p class="text-white text-title2 mb-6">Gumukmas Multifarm (GMF) adalah perusahaan yang berfokus pada
-                    kemitraan
-                    domba dan penyediaan pakan ternak ruminansia berkualitas tinggi yang berlokasi di Jember, Jawa Timur
-                </p>
+                <p class="text-white text-title2 mb-6">Sanke Koi</p>
                 <div class="flex space-x-4 mb-12">
                     <!-- Instagram Icon -->
                     <a href="https://www.instagram.com/" target="_blank" class="text-white">

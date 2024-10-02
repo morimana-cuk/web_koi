@@ -5,13 +5,13 @@
             <div class="flex-1 flex justify-center items-center">
                 <div>
                     <img src="{{ asset('images/login/logo-login.png') }}"
-                        class="inline h-10 w-10 transition-all duration-200 ease-nav-brand" alt="main_logo" />
+                        class="inline h-20 w-20 transition-all duration-200 ease-nav-brand" alt="main_logo" />
                 </div>
                 <div class="ml-2">
                     <span
-                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">GUMUKMAS</span>
+                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">Sanke</span>
                     <span
-                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">MULTIFARM</span>
+                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">Koi</span>
                 </div>
             </div>
         </a>
@@ -96,7 +96,7 @@
             </li>
             @else
             @endif
-            <li>
+            <!-- <li>
                 <a href="{{ route('blog') }}"
                     class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
@@ -110,7 +110,7 @@
                     </svg>
                     Blog
                 </a>
-            </li>
+            </li> -->
         </ul>
     </nav>
 </aside>
