@@ -70,85 +70,60 @@
                                                     <p class="text-white text-md font-bold w-1/3">Suhu</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Temperature1->isNotEmpty())
-                                                            @foreach ($Temperature1 as $temperature)
-                                                                {{ $temperature->nilai_suhu }} C
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No Temperature data available.</p>
-                                                        @endif
+                                                        {{ $temperature1 ?? 'No Temperature data available.' }} C
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="w-full mb-6">
                                             <div class="flex justify-between">
                                                 <div class="flex w-full">
                                                     <p class="text-white text-md font-bold w-1/3">pH</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Humidity1->isNotEmpty())
-                                                            @foreach ($Humidity1 as $humidity)
-                                                                {{ $humidity->nilai_humidity }} %
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No pH data available.</p>
-                                                        @endif
+                                                        {{ $ph1 ?? 'No pH data available.' }} %
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="w-full mb-6">
                                             <div class="flex justify-between">
                                                 <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">Ammonia</p>
+                                                    <p class="text-white text-md font-bold w-1/3">Amonia</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Amonia1->isNotEmpty())
-                                                            @foreach ($Amonia1 as $amonia)
-                                                                {{ $amonia->nilai_amonia }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No Ammonia data available.</p>
-                                                        @endif
+                                                        {{ $amonia1 ?? 'No Amonia data available.' }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="w-full mb-6">
                                             <div class="flex justify-between">
                                                 <div class="flex w-full">
                                                     <p class="text-white text-md font-bold w-1/3">TDS</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Dioksida1->isNotEmpty())
-                                                            @foreach ($Dioksida1 as $dioksida)
-                                                                {{ $dioksida->nilai_dioksida }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No TDS data available.</p>
-                                                        @endif
+                                                        {{ $tds1 ?? 'No TDS data available.' }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="w-full mb-6">
                                             <div class="flex justify-between">
                                                 <div class="flex w-full">
                                                     <p class="text-white text-md font-bold w-1/3">DO</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Metana1->isNotEmpty())
-                                                            @foreach ($Metana1 as $metana)
-                                                                {{ $metana->nilai_metana }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No DO data available.</p>
-                                                        @endif
+                                                        {{ $do1 ?? 'No DO data available.' }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </a>
 
@@ -165,276 +140,63 @@
                                                     <p class="text-white text-md font-bold w-1/3">Suhu</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Temperature2->isNotEmpty())
-                                                            @foreach ($Temperature2 as $temperature)
-                                                                {{ $temperature->nilai_suhu }} C
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No Temperature data available.</p>
-                                                        @endif
+                                                        {{ $temperature1 ?? 'No Temperature data available.' }} C
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="w-full mb-6">
                                             <div class="flex justify-between">
                                                 <div class="flex w-full">
                                                     <p class="text-white text-md font-bold w-1/3">pH</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Humidity2->isNotEmpty())
-                                                            @foreach ($Humidity2 as $humidity)
-                                                                {{ $humidity->nilai_humidity }} %
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No pH data available.</p>
-                                                        @endif
+                                                        {{ $ph1 ?? 'No pH data available.' }} %
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="w-full mb-6">
                                             <div class="flex justify-between">
                                                 <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">Ammonia</p>
+                                                    <p class="text-white text-md font-bold w-1/3">Amonia</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Amonia2->isNotEmpty())
-                                                            @foreach ($Amonia2 as $amonia)
-                                                                {{ $amonia->nilai_amonia }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No Ammonia data available.</p>
-                                                        @endif
+                                                        {{ $amonia1 ?? 'No Amonia data available.' }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="w-full mb-6">
                                             <div class="flex justify-between">
                                                 <div class="flex w-full">
                                                     <p class="text-white text-md font-bold w-1/3">TDS</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Dioksida2->isNotEmpty())
-                                                            @foreach ($Dioksida2 as $dioksida)
-                                                                {{ $dioksida->nilai_dioksida }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No TDS data available.</p>
-                                                        @endif
+                                                        {{ $tds1 ?? 'No TDS data available.' }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="w-full mb-6">
                                             <div class="flex justify-between">
                                                 <div class="flex w-full">
                                                     <p class="text-white text-md font-bold w-1/3">DO</p>
                                                     <p class="text-white text-md font-bold w-1/6">:</p>
                                                     <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Metana2->isNotEmpty())
-                                                            @foreach ($Metana2 as $metana)
-                                                                {{ $metana->nilai_metana }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No DO data available.</p>
-                                                        @endif
+                                                        {{ $do1 ?? 'No DO data available.' }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </a>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4 mt-4">
-                                <a href="{{ route('detail.dashboard3', ['id' => 3]) }}" class="col-span-1">
-                                    <div
-                                        class="bg-red-400 h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
-                                        <div class="w-full mb-6 items-center mt-4">
-                                            <p class="text-white text-lg font-bold">Lokasi Alat 3</p>
-                                            <p class="text-white text-sm font-bold">Keterangan Lokasi:</p>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">Suhu</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Temperature3->isNotEmpty())
-                                                            @foreach ($Temperature3 as $temperature)
-                                                                {{ $temperature->nilai_suhu }} C
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No Temperature data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">pH</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Humidity3->isNotEmpty())
-                                                            @foreach ($Humidity3 as $humidity)
-                                                                {{ $humidity->nilai_humidity }} %
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No pH data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">Ammonia</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Amonia3->isNotEmpty())
-                                                            @foreach ($Amonia3 as $amonia)
-                                                                {{ $amonia->nilai_amonia }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No Ammonia data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">TDS</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Dioksida3->isNotEmpty())
-                                                            @foreach ($Dioksida3 as $dioksida)
-                                                                {{ $dioksida->nilai_dioksida }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No TDS data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">DO</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Metana3->isNotEmpty())
-                                                            @foreach ($Metana3 as $metana)
-                                                                {{ $metana->nilai_metana }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No DO data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="{{ route('detail.dashboard4', ['id' => 4]) }}" class="col-span-1">
-                                    <div class="bg-red-400 h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
-                                        <div class="w-full mb-6 items-center mt-4">
-                                            <p class="text-white text-lg font-bold">Lokasi Alat 4</p>
-                                            <p class="text-white text-sm font-bold">Keterangan Lokasi:</p>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">Suhu</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Temperature4->isNotEmpty())
-                                                            @foreach ($Temperature4 as $temperature)
-                                                                {{ $temperature->nilai_suhu }} C
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No Temperature data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">pH</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Humidity4->isNotEmpty())
-                                                            @foreach ($Humidity4 as $humidity)
-                                                                {{ $humidity->nilai_humidity }} %
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No pH data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">Ammonia</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Amonia4->isNotEmpty())
-                                                            @foreach ($Amonia4 as $amonia)
-                                                                {{ $amonia->nilai_amonia }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No Ammonia data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">TDS</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Dioksida4->isNotEmpty())
-                                                            @foreach ($Dioksida4 as $dioksida)
-                                                                {{ $dioksida->nilai_dioksida }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No TDS data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-full mb-6">
-                                            <div class="flex justify-between">
-                                                <div class="flex w-full">
-                                                    <p class="text-white text-md font-bold w-1/3">DO</p>
-                                                    <p class="text-white text-md font-bold w-1/6">:</p>
-                                                    <p class="text-white text-md font-bold w-1/2">
-                                                        @if ($Metana4->isNotEmpty())
-                                                            @foreach ($Metana4 as $metana)
-                                                                {{ $metana->nilai_metana }}
-                                                            @endforeach
-                                                        @else
-                                                            <p class="text-black">No DO data available.</p>
-                                                        @endif
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+
                             </div>
                         </div>
                     </div>

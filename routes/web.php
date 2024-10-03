@@ -6,6 +6,7 @@ use App\Exports\HumidityExport;
 use App\Exports\MetanaExport;
 use App\Exports\TemperatureExport;
 use App\Http\Controllers\ChartsController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\RiwayatController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,8 +16,8 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-// Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', [dashboardController::class, 'index'])->name('dashboard');
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::view('detail/1', 'dashboard/detaildashboard1')->name('detail.dashboard1');
         Route::view('detail/2', 'dashboard/detaildashboard2')->name('detail.dashboard2');
@@ -80,6 +81,6 @@ Route::get('/', function () {
 
         return Excel::download(new DioksidaExport($startDate, $endDate), 'dioksida_data.xlsx');
     })->name('export.dioksida');
-// });
+});
 
 require __DIR__.'/auth.php';
