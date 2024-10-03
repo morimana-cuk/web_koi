@@ -15,7 +15,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+// Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::view('detail/1', 'dashboard/detaildashboard1')->name('detail.dashboard1');
@@ -80,6 +80,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         return Excel::download(new DioksidaExport($startDate, $endDate), 'dioksida_data.xlsx');
     })->name('export.dioksida');
-});
+// });
 
 require __DIR__.'/auth.php';

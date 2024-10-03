@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AlatController;
 use App\Http\Controllers\Api\MobileController;
 use App\Http\Controllers\DeviceController;
 use Illuminate\Http\Request;
@@ -18,3 +19,6 @@ Route::controller(DeviceController::class)->prefix('/device')->group(function ()
     Route::post('/temperature', [DeviceController::class, 'temperature']);
     Route::post('/humidity', [DeviceController::class, 'humidity']);
 });
+
+
+Route::post('/alat', [AlatController::class, 'store'])->name('simpan_data_iot');
