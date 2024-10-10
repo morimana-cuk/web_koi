@@ -19,10 +19,8 @@ class AlatController extends Controller
         $amonia = 0;
 
         if ($ph < 6.5) {
-            # code...
             $amonia = $ph / $suhu * 0.202;
         } elseif ($ph == 7.0) {
-            # code...
             $amonia = $ph / $suhu * 1.131;
         } elseif ($ph > 7.0) {
             $amonia = $ph / $suhu * 3.306;
@@ -30,9 +28,9 @@ class AlatController extends Controller
 
 
         $data = [
-            $alat->temperature = $suhu,
             $alat->ph = $ph,
             $alat->tds = $request->tds,
+            $alat->temperature = $suhu,
             $alat->do = $request->do,
             $alat->amonia = $amonia,
             $alat->id_alat = $request->id_alat,

@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Amonia;
+use App\Models\alat;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -30,8 +30,8 @@ class AmmoniaExport implements FromCollection, ShouldAutoSize, WithHeadings, Wit
      */
     public function collection()
     {
-        return Amonia::whereBetween('created_at', [$this->startDate, $this->endDate])
-            ->selectRaw('DATE(created_at) as tanggal, AVG(nilai_amonia) as rata_rata_amonia')
+        return alat::whereBetween('created_at', [$this->startDate, $this->endDate])
+            ->selectRaw('DATE(created_at) as tanggal, AVG(amonia) as rata_rata_amonia')
             ->groupBy('tanggal')
             ->orderBy('tanggal')
             ->get();

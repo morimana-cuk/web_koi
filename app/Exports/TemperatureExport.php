@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Temperature;
+use App\Models\alat;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -29,8 +29,8 @@ class TemperatureExport implements FromCollection, ShouldAutoSize, WithHeadings,
      */
     public function collection()
     {
-        return Temperature::whereBetween('created_at', [$this->startDate, $this->endDate])
-            ->selectRaw('DATE(created_at) as tanggal, AVG(nilai_suhu) as rata_rata_suhu')
+        return alat::whereBetween('created_at', [$this->startDate, $this->endDate])
+            ->selectRaw('DATE(created_at) as tanggal, AVG(temperature) as rata_rata_suhu')
             ->groupBy('tanggal')
             ->orderBy('tanggal')
             ->get();

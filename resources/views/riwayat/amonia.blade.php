@@ -29,9 +29,9 @@
                         </div>
                         <div class="ml-2">
                             <span
-                                class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">GUMUKMAS</span>
+                                class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">SANKE</span>
                             <span
-                                class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">MULTIFARM</span>
+                                class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">KOI</span>
                         </div>
                     </div>
                 </a>
@@ -117,19 +117,6 @@
                     @else
                     @endif
                     <li>
-                        <a href="{{ route('blog') }}"
-                            class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                                fill="currentColor">
-                                <path
-                                    d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
-                                <path
-                                    d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
-                                <path
-                                    d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
-                            </svg>
-                            Blog
-                        </a>
                     </li>
                 </ul>
             </nav>
@@ -198,7 +185,7 @@
             </main>
             <footer class="bg-white border-t border-gray-200 p-4 shadow-md mt-auto">
                 <div class="flex items-center justify-center">
-                    <p class="text-sm text-gray-500">&copy; Gumukmas Multifarm</p>
+                    <p class="text-sm text-gray-500">&copy; Sanke Koi</p>
                 </div>
             </footer>
             <form id="logout-form" action="#" method="POST" style="display: none;">

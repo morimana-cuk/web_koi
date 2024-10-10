@@ -12,11 +12,11 @@ class DashboardController extends Controller
         function getLatestData($id_alat)
         {
             return [
-                'ph' => Alat::where('id_alat', $id_alat)->pluck('ph')->first() ?? 'No data available',
-                'tds' => Alat::where('id_alat', $id_alat)->pluck('tds')->first() ?? 'No data available',
-                'do' => Alat::where('id_alat', $id_alat)->pluck('do')->first() ?? 'No data available',
-                'temperature' => Alat::where('id_alat', $id_alat)->pluck('temperature')->first() ?? 'No data available',
-                'amonia' => Alat::where('id_alat', $id_alat)->pluck('amonia')->first() ?? 'No data available',
+                'ph' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('ph')->first() ?? 'No data available',
+                'tds' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('tds')->first() ?? 'No data available',
+                'do' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('do')->first() ?? 'No data available',
+                'temperature' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('temperature')->first() ?? 'No data available',
+                'amonia' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('amonia')->first() ?? 'No data available',
             ];
         }
 
@@ -38,5 +38,34 @@ class DashboardController extends Controller
         ];
 
         return view('dashboard', $data);
+    }
+
+    public function getLatestData($id_alat)
+    {
+        return [
+            'ph' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('ph')->first() ?? 'No data available',
+            'tds' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('tds')->first() ?? 'No data available',
+            'do' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('do')->first() ?? 'No data available',
+            'temperature' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('temperature')->first() ?? 'No data available',
+            'amonia' => Alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->pluck('amonia')->first() ?? 'No data available',
+        ];
+    }
+
+    public function fetchData(Request $request, $id_alat)
+    {
+        $alat = alat::where('id_alat', $id_alat)->orderBy('created_at', 'desc')->first();
+
+        if ($alat) {
+            return response()->json([
+                'temperature' => $alat->temperature,
+                'ph' => $alat->ph,
+                'tds' => $alat->tds,
+                'do' => $alat->do,
+                'amonia' => $alat->amonia,
+                'created_at' => $alat->created_at,
+            ]);
+        }
+
+        return response()->json(['message' => 'No data found'], 404);
     }
 }

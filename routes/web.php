@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [dashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/data/{id_alat}', [DashboardController::class, 'fetchData'])->name('dashboard.data');
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::view('detail/1', 'dashboard/detaildashboard1')->name('detail.dashboard1');
         Route::view('detail/2', 'dashboard/detaildashboard2')->name('detail.dashboard2');

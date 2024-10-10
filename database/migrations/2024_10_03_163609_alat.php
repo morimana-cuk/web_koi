@@ -21,7 +21,7 @@ return new class extends Migration
                 $table->float('do');
                 $table->float('amonia');
                 $table->integer('id_alat');
-                $table->string('label');
+                $table->string('label')->nullable();
                 $table->timestamps();
 
             });

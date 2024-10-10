@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ExportRiwayat;
+use App\Models\alat;
 use App\Models\Amonia;
 use App\Models\Dioksida;
 use App\Models\Humidity;
@@ -45,7 +46,7 @@ class RiwayatController extends Controller
         $end_date = $request->input('createTo') ?? now()->format('Y-m-d');
 
         // Query untuk mendapatkan data suhu rata-rata antara dua tanggal
-        $data = Amonia::selectRaw('DATE(created_at) as date, round(AVG(nilai_amonia), 0) as avg_amonia')
+        $data = alat::selectRaw('DATE(created_at) as date, round(AVG(amonia), 0) as avg_amonia')
             ->whereBetween('created_at', [$start_date, $end_date])
             ->groupBy('date')
             ->orderBy('date')
@@ -67,7 +68,7 @@ class RiwayatController extends Controller
         $end_date = $request->input('createTo') ?? now()->format('Y-m-d');
 
         // Query untuk mendapatkan data suhu rata-rata antara dua tanggal
-        $data = Temperature::selectRaw('DATE(created_at) as date, round(AVG(nilai_suhu), 0) as avg_temperature')
+        $data = alat::selectRaw('DATE(created_at) as date, round(AVG(temperature), 0) as avg_temperature')
             ->whereBetween('created_at', [$start_date, $end_date])
             ->groupBy('date')
             ->orderBy('date')
