@@ -29,9 +29,9 @@
                         </div>
                         <div class="ml-2">
                             <span
-                                class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">GUMUKMAS</span>
+                                class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">SANKE</span>
                             <span
-                                class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">MULTIFARM</span>
+                                class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">KOI</span>
                         </div>
                     </div>
                 </a>
@@ -76,9 +76,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('riwayat.humidity') }}"
+                                <a href="{{ route('riwayat.ph') }}"
                                     class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                                    Humidity
+                                    PH
                                 </a>
                             </li>
                             <li>
@@ -88,49 +88,34 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('riwayat.metana') }}"
+                                <a href="{{ route('riwayat.tds') }}"
                                     class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                                    Metana
+                                    TDS
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('riwayat.dioksida') }}"
+                                <a href="{{ route('riwayat.do') }}"
                                     class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                                    Karbon Dioksida
+                                    DO
                                 </a>
                             </li>
                         </ul>
                     </li>
                     @if (Auth::user()->role == 'admin')
-                        <li>
-                            <a href="{{ route('karyawan') }}"
-                                class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                                    <path
-                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
-                                </svg>
-                                Data Karyawan
-                            </a>
-                        </li>
-                    @else
-                    @endif
                     <li>
-                        <a href="{{ route('blog') }}"
+                        <a href="{{ route('karyawan') }}"
                             class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
                                 fill="currentColor">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                                 <path
-                                    d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
-                                <path
-                                    d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
-                                <path
-                                    d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
                             </svg>
-                            Blog
+                            Data Karyawan
                         </a>
                     </li>
+                    @else
+                    @endif
                 </ul>
             </nav>
         </aside>
@@ -163,7 +148,7 @@
             <main class="flex-1 overflow-y-auto p-4">
                 <div class="bg-white shadow-lg rounded-lg mb-4">
                     <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                        <h6 class="m-0 font-semibold text-gray-700">Riwayat Humidity</h6>
+                        <h6 class="m-0 font-semibold text-gray-700">Riwayat TDS</h6>
                         <a href="#" id="export-btn"
                             class="py-1 px-3 bg-dgreen text-body font-semibold text-lwhite rounded-md flex items-center space-x-2">
                             <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
@@ -198,7 +183,7 @@
             </main>
             <footer class="bg-white border-t border-gray-200 p-4 shadow-md mt-auto">
                 <div class="flex items-center justify-center">
-                    <p class="text-sm text-gray-500">&copy; Gumukmas Multifarm</p>
+                    <p class="text-sm text-gray-500">&copy; Sanke Koi</p>
                 </div>
             </footer>
             <form id="logout-form" action="#" method="POST" style="display: none;">
@@ -214,7 +199,7 @@
                 var start = $('#daterange').data('daterangepicker').startDate.format('YYYY-MM-DD');
                 var end = $('#daterange').data('daterangepicker').endDate.format('YYYY-MM-DD');
 
-                window.location.href = '{{ route('export.humidity') }}?createFrom=' + start + '&createTo=' +
+                window.location.href = '{{ route('export.tds') }}?createFrom=' + start + '&createTo=' +
                     end;
             });
         });
@@ -244,7 +229,7 @@
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Humidity Levels',
+                            label: 'Metana Levels',
                             data: data,
                             backgroundColor: 'rgba(75, 192, 192, 0.2)',
                             borderColor: 'rgba(75, 192, 192, 1)',
@@ -264,7 +249,7 @@
             // Fungsi untuk mendapatkan data berdasarkan rentang tanggal
             function fetchData(start, end) {
                 $.ajax({
-                    url: '{{ route('data.riwayathumidity') }}',
+                    url: '{{ route('data.riwayattds') }}',
                     method: 'POST',
                     data: {
                         createFrom: start.format('YYYY-MM-DD'),

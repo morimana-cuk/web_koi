@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Dioksida;
+use App\Models\alat;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -13,7 +13,7 @@ use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class DioksidaExport implements FromCollection, ShouldAutoSize, WithHeadings, WithMapping, WithStyles
+class DOExport implements FromCollection, ShouldAutoSize, WithHeadings, WithMapping, WithStyles
 {
     protected $startDate;
 
@@ -30,8 +30,8 @@ class DioksidaExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
      */
     public function collection()
     {
-        return Dioksida::whereBetween('created_at', [$this->startDate, $this->endDate])
-            ->selectRaw('DATE(created_at) as tanggal, AVG(nilai_dioksida) as rata_rata_dioksida')
+        return alat::whereBetween('created_at', [$this->startDate, $this->endDate])
+            ->selectRaw('DATE(created_at) as tanggal, AVG(do) as rata_rata_do')
             ->groupBy('tanggal')
             ->orderBy('tanggal')
             ->get();
@@ -42,7 +42,7 @@ class DioksidaExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
         return [
             'No',
             'Tanggal',
-            'Rata-rata Dioksida',
+            'Rata-rata DO',
         ];
     }
 
@@ -57,7 +57,7 @@ class DioksidaExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
         return [
             $number,
             $row->tanggal,
-            $row->rata_rata_dioksida,
+            $row->rata_rata_do,
         ];
     }
 

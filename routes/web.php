@@ -1,9 +1,9 @@
 <?php
 
 use App\Exports\AmmoniaExport;
-use App\Exports\DioksidaExport;
-use App\Exports\HumidityExport;
-use App\Exports\MetanaExport;
+use App\Exports\DOExport;
+use App\Exports\PHExport;
+use App\Exports\TDSExport;
 use App\Exports\TemperatureExport;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\dashboardController;
@@ -37,16 +37,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::get('riwayat-temperature', 'riwayatTemperature')->name('riwayat.temperature');
-        Route::get('riwayat-humidity', 'riwayatHumidity')->name('riwayat.humidity');
-        Route::get('riwayat-metana', 'riwayatMetana')->name('riwayat.metana');
-        Route::get('riwayat-dioksida', 'riwayatDioksida')->name('riwayat.dioksida');
+        Route::get('riwayat-ph', 'riwayatPH')->name('riwayat.ph');
+        Route::get('riwayat-tds', 'riwayatTDS')->name('riwayat.tds');
+        Route::get('riwayat-do', 'riwayatDO')->name('riwayat.do');
         Route::get('riwayat-amonia', 'riwayatAmonia')->name('riwayat.amonia');
 
         Route::post('/data/amonia', 'getAmoniaData')->name('data.riwayatamonia');
         Route::post('/data/temperature', 'getTemperatureData')->name('data.riwayattemperature');
-        Route::post('/data/metana', 'getMetanaData')->name('data.riwayatmetana');
-        Route::post('/data/humidity', 'getHumidityData')->name('data.riwayathumidity');
-        Route::post('/data/dioksida', 'getDioksidaData')->name('data.riwayatdioksida');
+        Route::post('/data/tds', 'getTDSData')->name('data.riwayattds');
+        Route::post('/data/ph', 'getPHData')->name('data.riwayatph');
+        Route::post('/data/do', 'getDOData')->name('data.riwayatdo');
 
     });
     Route::get('export/ammonia', function (Request $request) {
@@ -62,26 +62,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Excel::download(new TemperatureExport($startDate, $endDate), 'temperature_data.xlsx');
     })->name('export.temperature');
 
-    Route::get('export/humidity', function (Request $request) {
+    Route::get('export/ph', function (Request $request) {
         $startDate = $request->input('createFrom');
         $endDate = $request->input('createTo');
 
-        return Excel::download(new HumidityExport($startDate, $endDate), 'humidity_data.xlsx');
-    })->name('export.humidity');
+        return Excel::download(new PHExport($startDate, $endDate), 'ph_data.xlsx');
+    })->name('export.ph');
 
-    Route::get('export/metana', function (Request $request) {
+    Route::get('export/tds', function (Request $request) {
         $startDate = $request->input('createFrom');
         $endDate = $request->input('createTo');
 
-        return Excel::download(new MetanaExport($startDate, $endDate), 'metana_data.xlsx');
-    })->name('export.metana');
+        return Excel::download(new TDSExport($startDate, $endDate), 'tds_data.xlsx');
+    })->name('export.tds');
 
-    Route::get('export/dioksida', function (Request $request) {
+    Route::get('export/do', function (Request $request) {
         $startDate = $request->input('createFrom');
         $endDate = $request->input('createTo');
 
-        return Excel::download(new DioksidaExport($startDate, $endDate), 'dioksida_data.xlsx');
-    })->name('export.dioksida');
+        return Excel::download(new DOExport($startDate, $endDate), 'do_data.xlsx');
+    })->name('export.do');
 });
 
 require __DIR__.'/auth.php';

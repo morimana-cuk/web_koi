@@ -76,9 +76,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('riwayat.humidity') }}"
+                                <a href="{{ route('riwayat.ph') }}"
                                     class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                                    Humidity
+                                    PH
                                 </a>
                             </li>
                             <li>
@@ -88,32 +88,32 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('riwayat.metana') }}"
+                                <a href="{{ route('riwayat.tds') }}"
                                     class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                                    Metana
+                                    TDS
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('riwayat.dioksida') }}"
+                                <a href="{{ route('riwayat.do') }}"
                                     class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                                    Karbon Dioksida
+                                    DO
                                 </a>
                             </li>
                         </ul>
                     </li>
                     @if (Auth::user()->role == 'admin')
-                        <li>
-                            <a href="{{ route('karyawan') }}"
-                                class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                                    <path
-                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
-                                </svg>
-                                Data Karyawan
-                            </a>
-                        </li>
+                    <li>
+                        <a href="{{ route('karyawan') }}"
+                            class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                            </svg>
+                            Data Karyawan
+                        </a>
+                    </li>
                     @else
                     @endif
                     <li>
@@ -201,8 +201,7 @@
                 var start = $('#daterange').data('daterangepicker').startDate.format('YYYY-MM-DD');
                 var end = $('#daterange').data('daterangepicker').endDate.format('YYYY-MM-DD');
 
-                window.location.href = '{{ route('export.temperature') }}?createFrom=' + start + '&createTo=' +
-                    end;
+                window.location.href = '/export/temperature?createFrom=' + start + '&createTo=' + end;
             });
         });
     </script>
@@ -251,7 +250,7 @@
             // Fungsi untuk mendapatkan data berdasarkan rentang tanggal
             function fetchData(start, end) {
                 $.ajax({
-                    url: '{{ route('data.riwayattemperature') }}',
+                    url: '/dashboard/data/temperature',
                     method: 'POST',
                     data: {
                         createFrom: start.format('YYYY-MM-DD'),

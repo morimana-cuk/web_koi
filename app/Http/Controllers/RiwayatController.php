@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\ExportRiwayat;
 use App\Models\alat;
-use App\Models\Amonia;
-use App\Models\Dioksida;
-use App\Models\Humidity;
-use App\Models\Metana;
-use App\Models\Temperature;
+use App\Models\Kualitas;
 use Excel;
 use Illuminate\Http\Request;
 
@@ -19,9 +15,9 @@ class RiwayatController extends Controller
         return view('riwayat/temperature');
     }
 
-    public function riwayatHumidity()
+    public function riwayatPH()
     {
-        return view('riwayat/humidity');
+        return view('riwayat/ph');
     }
 
     public function riwayatAmonia(Request $request)
@@ -29,14 +25,14 @@ class RiwayatController extends Controller
         return view('riwayat/amonia');
     }
 
-    public function riwayatDioksida()
+    public function riwayatDO()
     {
-        return view('riwayat/dioksida');
+        return view('riwayat/do');
     }
 
-    public function riwayatMetana()
+    public function riwayatTDS()
     {
-        return view('riwayat/metana');
+        return view('riwayat/tds');
     }
 
 
@@ -68,7 +64,8 @@ class RiwayatController extends Controller
         $end_date = $request->input('createTo') ?? now()->format('Y-m-d');
 
         // Query untuk mendapatkan data suhu rata-rata antara dua tanggal
-        $data = alat::selectRaw('DATE(created_at) as date, round(AVG(temperature), 0) as avg_temperature')
+        $data = alat::selectRaw('DATE(created_at) as date, round(AVG(suhu), 0) as avg_temperature')
+            ->where('id_alat', 2)
             ->whereBetween('created_at', [$start_date, $end_date])
             ->groupBy('date')
             ->orderBy('date')
@@ -84,13 +81,13 @@ class RiwayatController extends Controller
         ]);
     }
 
-    public function getMetanaData(Request $request)
+    public function getTDSData(Request $request)
     {
         $start_date = $request->input('createFrom') ?? now()->subDays(7)->format('Y-m-d');
         $end_date = $request->input('createTo') ?? now()->format('Y-m-d');
 
         // Query untuk mendapatkan data suhu rata-rata antara dua tanggal
-        $data = Metana::selectRaw('DATE(created_at) as date, round(AVG(nilai_metana), 0) as avg_metana')
+        $data = alat::selectRaw('DATE(created_at) as date, round(AVG(tds), 0) as avg_tds')
             ->whereBetween('created_at', [$start_date, $end_date])
             ->groupBy('date')
             ->orderBy('date')
@@ -98,7 +95,7 @@ class RiwayatController extends Controller
 
         // Format data untuk Chartb.js
         $labels = $data->pluck('date');
-        $values = $data->pluck('avg_metana');
+        $values = $data->pluck('avg_tds');
 
         return response()->json([
             'labels' => $labels,
@@ -106,13 +103,13 @@ class RiwayatController extends Controller
         ]);
     }
 
-    public function getDioksidaData(Request $request)
+    public function getDOData(Request $request)
     {
         $start_date = $request->input('createFrom') ?? now()->subDays(7)->format('Y-m-d');
         $end_date = $request->input('createTo') ?? now()->format('Y-m-d');
 
         // Query untuk mendapatkan data suhu rata-rata antara dua tanggal
-        $data = Dioksida::selectRaw('DATE(created_at) as date, round(AVG(nilai_dioksida), 0) as avg_dioksida')
+        $data = alat::selectRaw('DATE(created_at) as date, round(AVG(do), 0) as avg_do')
             ->whereBetween('created_at', [$start_date, $end_date])
             ->groupBy('date')
             ->orderBy('date')
@@ -120,7 +117,7 @@ class RiwayatController extends Controller
 
         // Format data untuk Chart.js
         $labels = $data->pluck('date');
-        $values = $data->pluck('avg_dioksida');
+        $values = $data->pluck('avg_do');
 
         return response()->json([
             'labels' => $labels,
@@ -128,13 +125,13 @@ class RiwayatController extends Controller
         ]);
     }
 
-    public function getHumidityData(Request $request)
+    public function getPHData(Request $request)
     {
         $start_date = $request->input('createFrom') ?? now()->subDays(7)->format('Y-m-d');
         $end_date = $request->input('createTo') ?? now()->format('Y-m-d');
 
         // Query untuk mendapatkan data suhu rata-rata antara dua tanggal
-        $data = Humidity::selectRaw('DATE(created_at) as date, round(AVG(nilai_humidity), 0) as avg_humidity')
+        $data = alat::selectRaw('DATE(created_at) as date, round(AVG(ph), 0) as avg_ph')
             ->whereBetween('created_at', [$start_date, $end_date])
             ->groupBy('date')
             ->orderBy('date')
@@ -142,7 +139,7 @@ class RiwayatController extends Controller
 
         // Format data untuk Chart.js
         $labels = $data->pluck('date');
-        $values = $data->pluck('avg_humidity');
+        $values = $data->pluck('avg_ph');
 
         return response()->json([
             'labels' => $labels,

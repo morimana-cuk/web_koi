@@ -30,7 +30,7 @@ class TemperatureExport implements FromCollection, ShouldAutoSize, WithHeadings,
     public function collection()
     {
         return alat::whereBetween('created_at', [$this->startDate, $this->endDate])
-            ->selectRaw('DATE(created_at) as tanggal, AVG(temperature) as rata_rata_suhu')
+            ->selectRaw('DATE(created_at) as tanggal, AVG(suhu) as rata_rata_suhu')
             ->groupBy('tanggal')
             ->orderBy('tanggal')
             ->get();

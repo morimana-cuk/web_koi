@@ -9,9 +9,9 @@
                 </div>
                 <div class="ml-2">
                     <span
-                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">Sanke</span>
+                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">SANKE</span>
                     <span
-                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">Koi</span>
+                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">KOI</span>
                 </div>
             </div>
         </a>
@@ -56,27 +56,27 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('riwayat.humidity') }}"
+                        <a href="{{ route('riwayat.ph') }}"
                             class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                            Humidity
+                            PH
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('riwayat.amonia') }}"
                             class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                           Amonia
+                            Amonia
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('riwayat.metana') }}"
+                        <a href="{{ route('riwayat.tds') }}"
                             class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                           Metana
+                            TDS
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('riwayat.dioksida') }}"
+                        <a href="{{ route('riwayat.do') }}"
                             class="flex items-center block mx-2 py-1 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                           Karbon Dioksida
+                            DO
                         </a>
                     </li>
                 </ul>

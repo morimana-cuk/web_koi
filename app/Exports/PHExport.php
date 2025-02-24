@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Metana;
+use App\Models\alat;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -13,7 +13,7 @@ use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class MetanaExport implements FromCollection, ShouldAutoSize, WithHeadings, WithMapping, WithStyles
+class PHExport implements FromCollection, ShouldAutoSize, WithHeadings, WithMapping, WithStyles
 {
     protected $startDate;
 
@@ -30,8 +30,8 @@ class MetanaExport implements FromCollection, ShouldAutoSize, WithHeadings, With
      */
     public function collection()
     {
-        return Metana::whereBetween('created_at', [$this->startDate, $this->endDate])
-            ->selectRaw('DATE(created_at) as tanggal, AVG(nilai_metana) as rata_rata_metana')
+        return alat::whereBetween('created_at', [$this->startDate, $this->endDate])
+            ->selectRaw('DATE(created_at) as tanggal, AVG(ph) as rata_rata_humidity')
             ->groupBy('tanggal')
             ->orderBy('tanggal')
             ->get();
@@ -42,7 +42,7 @@ class MetanaExport implements FromCollection, ShouldAutoSize, WithHeadings, With
         return [
             'No',
             'Tanggal',
-            'Rata-rata Metana',
+            'Rata-rata pH',
         ];
     }
 
@@ -57,7 +57,7 @@ class MetanaExport implements FromCollection, ShouldAutoSize, WithHeadings, With
         return [
             $number,
             $row->tanggal,
-            $row->rata_rata_metana,
+            $row->rata_rata_humidity,
         ];
     }
 

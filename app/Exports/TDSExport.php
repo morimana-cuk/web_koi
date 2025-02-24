@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Humidity;
+use App\Models\alat;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -13,7 +13,7 @@ use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class HumidityExport implements FromCollection, ShouldAutoSize, WithHeadings, WithMapping, WithStyles
+class TDSExport implements FromCollection, ShouldAutoSize, WithHeadings, WithMapping, WithStyles
 {
     protected $startDate;
 
@@ -30,8 +30,8 @@ class HumidityExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
      */
     public function collection()
     {
-        return Humidity::whereBetween('created_at', [$this->startDate, $this->endDate])
-            ->selectRaw('DATE(created_at) as tanggal, AVG(nilai_humidity) as rata_rata_humidity')
+        return alat::whereBetween('created_at', [$this->startDate, $this->endDate])
+            ->selectRaw('DATE(created_at) as tanggal, AVG(tds) as rata_rata_tds')
             ->groupBy('tanggal')
             ->orderBy('tanggal')
             ->get();
@@ -42,7 +42,7 @@ class HumidityExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
         return [
             'No',
             'Tanggal',
-            'Rata-rata Kelembapan',
+            'Rata-rata TDS',
         ];
     }
 
@@ -57,7 +57,7 @@ class HumidityExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
         return [
             $number,
             $row->tanggal,
-            $row->rata_rata_humidity,
+            $row->rata_rata_tds,
         ];
     }
 
