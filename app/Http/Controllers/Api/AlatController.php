@@ -62,7 +62,7 @@ class AlatController extends Controller
 
             if ($id_alat == 1) {
                 // Mengirimkan request POST ke API
-                $response = $client->request('POST', 'https://sanke-ai.research-ai.my.id/kualitas-air', [
+                $response = $client->request('POST', 'http://20.5.232.50/kualitas-air', [
                     'form_params' => [
                         'suhu' => $suhu,
                         'ph' => $ph,
@@ -73,7 +73,7 @@ class AlatController extends Controller
             }
 
             if ($id_alat == 2) {
-                $response = $client->request('POST', 'https://sanke-ai.research-ai.my.id/kualitas-air', [
+                $response = $client->request('POST', 'http://20.5.232.50/kualitas-air', [
                     'form_params' => [
                         'suhu' => $suhu,
                         'ph' => $ph,
@@ -86,6 +86,12 @@ class AlatController extends Controller
             $body = $response->getBody();
 
             $data = json_decode($body, true);
+            // if ($suhu >= 20 && $suhu <= 28 && $ph >= 7.0 && $ph <= 7.8 && $tds >= 0 && $tds <= 150) {
+            //     # code...
+            //      $label = 'Bagus';
+            // }else{
+            //      $label = 'Buruk';
+            // }
 
             $data2 = [
                 'suhu' => $suhu,
@@ -98,10 +104,11 @@ class AlatController extends Controller
             $kualitas_air->fill($data2);
             $kualitas_air->save();
 
+            $data = [$alat, $kualitas_air];
             return response()->json(
                 [
                     'message' => 'Data berhasil ditambahkan',
-                    'data' => $alat
+                    'data' => $data,
                 ]
             );
         } catch (ServerException $e) {
