@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li>
-                <a type="button"
+                <a type="button" class="hidden"
                     class="flex items-center block py-2 text-white text-body hover:text-green-600 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200"
                     aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"

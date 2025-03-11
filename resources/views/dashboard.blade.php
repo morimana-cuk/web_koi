@@ -108,7 +108,7 @@
 
                                 <div class="bg-red-400 h-full p-4 md:px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
                                     <div class="w-full mb-6 items-center mt-4">
-                                        <p class="text-white text-lg font-bold text-center"> Alat 1</p>
+                                        <p class="text-white text-lg font-bold text-center"> Alat </p>
                                         <br />
                                         <hr style="border: 1px solid black; width: 100%;">
                                         <br />
@@ -145,7 +145,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="w-full mb-6">
+                                    <div class="w-full mb-6 hidden">
                                         <div class="flex justify-between">
                                             <div class="flex w-full">
                                                 <p class="text-white text-md font-bold w-1/3">Amonia</p>
@@ -169,7 +169,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="w-full mb-6">
+                                    <div class="w-full mb-6 hidden">
                                         <div class="flex justify-between">
                                             <div class="flex w-full">
                                                 <p class="text-white text-md font-bold w-1/3">DO</p>
@@ -195,7 +195,7 @@
                                     </div>
                                 </div>
 
-                                <div class="bg-red-400 h-full p-4 md:px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                <div class="bg-red-400 h-full p-4 md:px-8 rounded-lg shadow-lg flex flex-col justify-center items-center hidden">
                                     <div class="w-full mb-6 items-center mt-4">
                                         <p class="text-white text-lg font-bold text-center"> Alat 2</p>
                                         <br />
@@ -314,7 +314,7 @@
 
                     let timeDifference = currentTime - lastUpdated;
 
-                    let status = timeDifference <= 600000 ? 'online' : 'offline'; // 10 minutes = 600000 ms
+                    let status = timeDifference <= 300000 ? 'online' : 'offline'; // 10 minutes = 600000 ms
 
                     // Handle the status and other data for each device (Alat)
                     if (id_alat === 1) {
