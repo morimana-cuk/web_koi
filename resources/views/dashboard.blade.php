@@ -40,8 +40,11 @@
 
         .datetime-container {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            flex-direction: row;
+            justify-content: flex-end;
+            /* Ganti dari flex-start */
+            align-items: center;
+            gap: 10px;
             margin: 20px;
             font-family: Arial, sans-serif;
         }
@@ -93,20 +96,24 @@
                             <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
                         </div>
                         <div class="px-4 py-4 md:px-8 md:py-8">
-                            <div class="datetime-container">
-                                <div id="daterange" class="py-2 px-3 bg-dgreen text-body font-semibold text-lwhite rounded-md flex items-center space-x-2">
-                                    <p class="date"><i class="fas fa-calendar-alt"></i><span id="date"></span></p>
+                            <div
+                                class="datetime-container w-full mb-4 flex flex-row justify-end items-center space-x-4">
+                                <div
+                                    class="py-2 px-3 bg-dgreen text-body font-semibold text-lwhite rounded-md flex items-center space-x-2">
+                                    <p class="date"><i class="fas fa-calendar-alt"></i><span id="date"></span>
+                                    </p>
                                 </div>
-                                <br/>
-                                <div id="daterange" class="py-2 px-3 bg-dgreen text-body font-semibold text-lwhite rounded-md flex items-center space-x-2">
+                                <div
+                                    class="py-2 px-3 bg-dgreen text-body font-semibold text-lwhite rounded-md flex items-center space-x-2">
                                     <p class="clock"><i class="fas fa-clock"></i><span id="clock"></span></p>
                                 </div>
                             </div>
 
                             <br />
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                                <div class="bg-red-400 h-full p-4 md:px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div
+                                    class="bg-red-400 h-96 w-full max-w-5xl col-span-1 md:col-span-2 p-10 md:px-16 rounded-lg shadow-lg flex flex-col justify-center items-center">
                                     <div class="w-full mb-6 items-center mt-4">
                                         <p class="text-white text-lg font-bold text-center"> Alat </p>
                                         <br />
@@ -114,9 +121,106 @@
                                         <br />
                                         <p class="text-white text-sm font-bold">
                                             Status : <span id="status1-text">Checking...</span>
-                                            <span id="status1-circle" class="inline-block w-3 h-3 rounded-full ml-2" style="background-color: yellow;"></span>
-                                        <p class="text-white text-sm text-right" id="date1"> Tanggal : {{ $created_at_date1 }}</p>
-                                        <p class="text-white text-sm text-right" id="hour1"> Jam : {{ $created_at_hour1 }}</p>
+                                            <span id="status1-circle" class="inline-block w-3 h-3 rounded-full ml-2"
+                                                style="background-color: yellow;"></span>
+                                        <p class="text-white text-sm text-right" id="date1"> Tanggal :
+                                            {{ $created_at_date1 }}</p>
+                                        <p class="text-white text-sm text-right" id="hour1"> Jam :
+                                            {{ $created_at_hour1 }}</p>
+                                        </p>
+                                        <br />
+                                        <hr style="border: 1px solid black; width: 100%;">
+                                    </div>
+                                    <!-- ...existing code... -->
+                                    <div class="w-full mb-6">
+                                        <div class="flex justify-between">
+                                            <div class="flex w-full">
+                                                <p class="text-white text-md font-bold w-1/3">Suhu</p>
+                                                <p class="text-white text-md font-bold w-1/6">:</p>
+                                                <p class="text-white text-md font-bold w-1/2" id="temperature1">
+                                                    {{ $temperature1 . ' C' ?? 'No Temperature data available.' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="w-full mb-6">
+                                        <div class="flex justify-between">
+                                            <div class="flex w-full">
+                                                <p class="text-white text-md font-bold w-1/3">pH</p>
+                                                <p class="text-white text-md font-bold w-1/6">:</p>
+                                                <p class="text-white text-md font-bold w-1/2" id="ph1">
+                                                    {{ $ph1 ?? 'No pH data available.' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="w-full mb-6 hidden">
+                                        <div class="flex justify-between">
+                                            <div class="flex w-full">
+                                                <p class="text-white text-md font-bold w-1/3">Amonia</p>
+                                                <p class="text-white text-md font-bold w-1/6">:</p>
+                                                <p class="text-white text-md font-bold w-1/2" id="amonia1">
+                                                    {{ $amonia1 . ' mg/L' ?? 'No Amonia data available.' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="w-full mb-6">
+                                        <div class="flex justify-between">
+                                            <div class="flex w-full">
+                                                <p class="text-white text-md font-bold w-1/3">TDS</p>
+                                                <p class="text-white text-md font-bold w-1/6">:</p>
+                                                <p class="text-white text-md font-bold w-1/2" id="tds1">
+                                                    {{ $tds1 . ' Ppm' ?? 'No TDS data available.' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="w-full mb-6 hidden">
+                                        <div class="flex justify-between">
+                                            <div class="flex w-full">
+                                                <p class="text-white text-md font-bold w-1/3">DO</p>
+                                                <p class="text-white text-md font-bold w-1/6">:</p>
+                                                <p class="text-white text-md font-bold w-1/2" id="do1">
+                                                    {{ $do1 . ' Ppm' ?? 'No DO data available.' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr style="border: 1px solid black; width: 100%;">
+                                    <br />
+                                    <div class="w-full mb-6">
+                                        <div class="flex justify-between">
+                                            <div class="flex w-full">
+                                                <p class="text-white text-md font-bold w-1/3">Kualitas Air</p>
+                                                <p class="text-white text-md font-bold w-1/6">:</p>
+                                                <p class="text-white text-md font-bold w-1/2" id="label1">
+                                                    {{ $label1 ?? 'No label data available.' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                {{-- <div class="bg-red-400 h-full p-4 md:px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                    <div class="w-full mb-6 items-center mt-4">
+                                        <p class="text-white text-lg font-bold text-center"> Alat </p>
+                                        <br />
+                                        <hr style="border: 1px solid black; width: 100%;">
+                                        <br />
+                                        <p class="text-white text-sm font-bold">
+                                            Status : <span id="status1-text">Checking...</span>
+                                            <span id="status1-circle" class="inline-block w-3 h-3 rounded-full ml-2"
+                                                style="background-color: yellow;"></span>
+                                        <p class="text-white text-sm text-right" id="date1"> Tanggal :
+                                            {{ $created_at_date1 }}</p>
+                                        <p class="text-white text-sm text-right" id="hour1"> Jam :
+                                            {{ $created_at_hour1 }}</p>
                                         </p>
                                         <br />
                                         <hr style="border: 1px solid black; width: 100%;">
@@ -193,9 +297,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="bg-red-400 h-full p-4 md:px-8 rounded-lg shadow-lg flex flex-col justify-center items-center hidden">
+                                <div
+                                    class="bg-red-400 h-full p-4 md:px-8 rounded-lg shadow-lg flex flex-col justify-center items-center hidden">
                                     <div class="w-full mb-6 items-center mt-4">
                                         <p class="text-white text-lg font-bold text-center"> Alat 2</p>
                                         <br />
@@ -203,9 +308,12 @@
                                         <br />
                                         <p class="text-white text-sm font-bold">
                                             Status : <span id="status2-text">Checking...</span>
-                                            <span id="status2-circle" class="inline-block w-3 h-3 rounded-full ml-2" style="background-color: yellow;"></span>
-                                        <p class="text-white text-sm text-right" id="date2"> Tanggal : {{ $created_at_date2 }}</p>
-                                        <p class="text-white text-sm text-right" id="hour2"> Jam : {{ $created_at_hour2 }}</p>
+                                            <span id="status2-circle" class="inline-block w-3 h-3 rounded-full ml-2"
+                                                style="background-color: yellow;"></span>
+                                        <p class="text-white text-sm text-right" id="date2"> Tanggal :
+                                            {{ $created_at_date2 }}</p>
+                                        <p class="text-white text-sm text-right" id="hour2"> Jam :
+                                            {{ $created_at_hour2 }}</p>
                                         </p>
                                         <br />
                                         <hr style="border: 1px solid black; width: 100%;">
